@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HyperScripts - Digital Agency</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .gradient-bg {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+        }
+        .service-card {
+            background: linear-gradient(135deg, rgba(30, 41, 59, 0.8) 0%, rgba(15, 23, 42, 0.9) 100%);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(59, 130, 246, 0.1);
+        }
+        .service-card.blue {
+            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+        }
+        .hero-image {
+            background: linear-gradient(45deg, #1e293b, #0f172a);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body class="bg-slate-900 text-white">
+    <!-- Header -->
+    <header class="gradient-bg border-b border-slate-800">
+        <div class="container mx-auto px-6 py-4">
+            <nav class="flex items-center justify-between">
+                <div class="flex items-center space-x-2">
+                    <div class="w-8 h-8 bg-blue-500 rounded-lg flex items-center justify-center">
+                        <span class="text-white font-bold text-sm">H</span>
+                    </div>
+                    <span class="text-xl font-bold">HYPERSCRIPTS</span>
+                </div>
+                
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#" class="text-slate-300 hover:text-white transition-colors">Home</a>
+                    <a href="#" class="text-slate-300 hover:text-white transition-colors">About</a>
+                    <a href="#" class="text-slate-300 hover:text-white transition-colors">Services</a>
+                    <a href="#" class="text-slate-300 hover:text-white transition-colors">Portfolio</a>
+                    <a href="#" class="text-slate-300 hover:text-white transition-colors">Contact</a>
+                </div>
+                
+                <button class="bg-blue-500 hover:bg-blue-600 px-6 py-2 rounded-lg font-medium transition-colors">
+                    Get Started
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="gradient-bg py-20">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <div class="inline-flex items-center bg-blue-500/10 border border-blue-500/20 rounded-full px-4 py-2 mb-8">
+                    <span class="text-blue-400 text-sm font-medium">WELCOME TO HYPERSCRIPTS</span>
+                </div>
+                
+                <h1 class="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+                    We are a leading <span class="text-blue-400">digital agency</span><br>
+                    with global reach & <span class="text-blue-400">services</span>
+                </h1>
+            </div>
+            
+            <!-- Hero Images Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+                <div class="hero-image h-48 bg-gradient-to-br from-orange-500 to-red-600 relative overflow-hidden">
+                    <div class="absolute inset-0 bg-black/20"></div>
+                    <div class="absolute bottom-4 left-4 text-white">
+                        <p class="text-sm opacity-75">More videos on YouTube</p>
+                    </div>
+                </div>
+                <div class="hero-image h-48 bg-gradient-to-br from-blue-600 to-purple-700 relative overflow-hidden">
+                    <div class="absolute inset-0 bg-black/20"></div>
+                </div>
+                <div class="hero-image h-48 bg-gradient-to-br from-slate-600 to-slate-800 relative overflow-hidden">
+                    <div class="absolute inset-0 bg-black/20"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Clients Section -->
+    <section class="py-16 bg-slate-800/50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-12">
+                Our <span class="text-blue-400">Clients</span>
+            </h2>
+            
+            <div class="flex flex-wrap justify-center items-center gap-12 opacity-60">
+                <div class="text-2xl font-bold text-slate-400">ORBIT</div>
+                <div class="text-2xl font-bold text-slate-400">VOXEL</div>
+                <div class="text-2xl font-bold text-slate-400">GOT</div>
+                <div class="text-2xl font-bold text-slate-400">LYREDU</div>
+                <div class="text-2xl font-bold text-slate-400">BPA</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="py-20 gradient-bg">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <div class="inline-flex items-center bg-blue-500/10 border border-blue-500/20 rounded-full px-4 py-2 mb-8">
+                    <span class="text-blue-400 text-sm font-medium">SERVICES</span>
+                </div>
+                
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">
+                    What can we do <span class="text-blue-400">for you?</span>
+                </h2>
+                <p class="text-slate-400 text-lg">We have exceptional expertise in five main areas</p>
+            </div>
+            
+            <!-- Services Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+                <!-- Digital Marketing -->
+                <div class="service-card rounded-2xl p-8 h-96 relative overflow-hidden">
+                    <div class="relative z-10">
+                        <p class="text-slate-400 text-sm mb-2">Digital</p>
+                        <h3 class="text-2xl font-bold text-blue-400 mb-4">Marketing</h3>
+                    </div>
+                    <div class="absolute bottom-6 left-8 right-8">
+                        <div class="flex space-x-2">
+                            <div class="w-8 h-8 bg-slate-700 rounded-lg flex items-center justify-center">
+                                <span class="text-xs">⚙️</span>
+                            </div>
+                            <div class="w-8 h-8 bg-slate-700 rounded-lg flex items-center justify-center">
+                                <span class="text-xs">📊</span>
+                            </div>
+                            <div class="w-8 h-8 bg-slate-700 rounded-lg flex items-center justify-center">
+                                <span class="text-xs">🎯</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Website Development -->
+                <div class="service-card blue rounded-2xl p-8 h-96 relative overflow-hidden">
+                    <div class="relative z-10">
+                        <p class="text-blue-100 text-sm mb-2">Website</p>
+                        <h3 class="text-2xl font-bold text-white mb-4">Development</h3>
+                    </div>
+                    <div class="absolute bottom-6 left-8 right-8">
+                        <div class="bg-slate-900/50 rounded-lg p-4">
+                            <div class="text-xs text-green-400 font-mono">
+                                <div>function createWebsite() {</div>
+                                <div class="ml-4">return "awesome";</div>
+                                <div>}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Mobile App Development -->
+                <div class="service-card rounded-2xl p-8 h-96 relative overflow-hidden">
+                    <div class="relative z-10">
+                        <p class="text-slate-400 text-sm mb-2">Mobile App &</p>
+                        <p class="text-slate-400 text-sm mb-2">Software</p>
+                        <h3 class="text-2xl font-bold text-blue-400 mb-4">Development</h3>
+                    </div>
+                    <div class="absolute bottom-6 right-8">
+                        <div class="w-16 h-24 bg-slate-700 rounded-lg border border-slate-600"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Bottom Services Row -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Market Research Agency -->
+                <div class="service-card blue rounded-2xl p-8 h-64 relative overflow-hidden">
+                    <div class="relative z-10">
+                        <p class="text-blue-100 text-sm mb-2">Market Research</p>
+                        <h3 class="text-2xl font-bold text-white mb-4">Agency</h3>
+                    </div>
+                </div>
+                
+                <!-- Data Analytics Services -->
+                <div class="service-card rounded-2xl p-8 h-64 relative overflow-hidden">
+                    <div class="relative z-10">
+                        <p class="text-slate-400 text-sm mb-2">Data Analytics</p>
+                        <h3 class="text-2xl font-bold text-blue-400 mb-4">Services</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 border-t border-slate-800 py-12">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="flex items-center space-x-2 mb-4 md:mb-0">
+                    <div class="w-8 h-8 bg-blue-500 rounded-lg flex items-center justify-center">
+                        <span class="text-white font-bold text-sm">H</span>
+                    </div>
+                    <span class="text-xl font-bold">HYPERSCRIPTS</span>
+                </div>
+                
+                <div class="flex space-x-6">
+                    <a href="#" class="text-slate-400 hover:text-white transition-colors">Privacy Policy</a>
+                    <a href="#" class="text-slate-400 hover:text-white transition-colors">Terms of Service</a>
+                    <a href="#" class="text-slate-400 hover:text-white transition-colors">Contact</a>
+                </div>
+            </div>
+            
+            <div class="border-t border-slate-800 mt-8 pt-8 text-center">
+                <p class="text-slate-400">&copy; 2024 HyperScripts. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
