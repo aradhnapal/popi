@@ -14,30 +14,44 @@
       max-width: 100%;
       overflow-x: auto;
     }
+
     .table-fixed {
-      width: 2000px; /* Fixed width to enforce horizontal scrollbar on larger screens */
-      table-layout: auto; /* Allow columns to adjust based on content */
+      width: 2000px;
+      /* Fixed width to enforce horizontal scrollbar on larger screens */
+      table-layout: auto;
+      /* Allow columns to adjust based on content */
     }
+
     .table-fixed th,
     .table-fixed td {
-      white-space: normal; /* Allow text to wrap */
-      word-wrap: break-word; /* Ensure long words break to fit */
-      padding: 8px; /* Add padding for readability */
+      white-space: normal;
+      /* Allow text to wrap */
+      word-wrap: break-word;
+      /* Ensure long words break to fit */
+      padding: 8px;
+      /* Add padding for readability */
     }
+
     .filter-input {
       width: 100%;
       box-sizing: border-box;
     }
+
     /* Ensure responsiveness for tables on small screens */
     @media (max-width: 768px) {
       .table-fixed {
-        width: 100%; /* Remove fixed width on mobile for better fit */
+        width: 100%;
+        /* Remove fixed width on mobile for better fit */
       }
+
       .action-buttons .btn {
-        margin-bottom: 0.5rem; /* Stack buttons vertically on mobile */
+        margin-bottom: 0.5rem;
+        /* Stack buttons vertically on mobile */
       }
+
       .search-section {
-        margin-top: 1rem; /* Add space for search on mobile */
+        margin-top: 1rem;
+        /* Add space for search on mobile */
       }
     }
   </style>
@@ -46,13 +60,14 @@
 <body>
   <!-- Responsive Header with Navbar -->
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
+    <div class="container-fluid ">
       <!-- Logo -->
       <a class="navbar-brand" href="#">
         <img src="images/logo.png" alt="Logo" style="height:40px;">
       </a>
       <!-- Hamburger Toggler -->
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
+        aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <!-- Collapsible Content -->
@@ -60,18 +75,30 @@
         <!-- Tabs -->
         <ul class="navbar-nav m-auto mb-2 mb-lg-0 nav-tabs border-0" id="myTab" role="tablist">
           <li class="nav-item" role="presentation">
-            <button class="nav-link" id="user-tab" data-bs-toggle="tab" data-bs-target="#user" type="button" role="tab">User Management</button>
+            <button class="nav-link" id="admin-tab" data-bs-toggle="tab" data-bs-target="#admin" type="button"
+              role="tab">Admin</button>
           </li>
           <li class="nav-item" role="presentation">
-            <button class="nav-link" id="po-tab" data-bs-toggle="tab" data-bs-target="#po" type="button" role="tab">All PO_PI Tracker</button>
+            <button class="nav-link" id="dashboard-tab" data-bs-toggle="tab" data-bs-target="#dashboard" type="button"
+              role="tab">Dashboard</button>
           </li>
           <li class="nav-item" role="presentation">
-            <button class="nav-link active" id="quotation-tab" data-bs-toggle="tab" data-bs-target="#quotation" type="button" role="tab">Quotation Tracker</button>
+            <button class="nav-link" id="summary-tab" data-bs-toggle="tab" data-bs-target="#summary" type="button"
+              role="tab">Summary</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="po-tab" data-bs-toggle="tab" data-bs-target="#po" type="button" role="tab">
+              PO_PI Tracker</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="quotation-tab" data-bs-toggle="tab" data-bs-target="#quotation"
+              type="button" role="tab">Quotation Tracker</button>
           </li>
         </ul>
         <!-- Settings Dropdown -->
         <div class="dropdown">
-          <button class="btn settings-btn dropdown-toggle d-flex align-items-center gap-2" type="button" id="settingsDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+          <button class="btn settings-btn dropdown-toggle d-flex align-items-center gap-2" type="button"
+            id="settingsDropdown" data-bs-toggle="dropdown" aria-expanded="false">
             <i class="fas fa-cog"></i> <span>Settings</span>
           </button>
           <ul class="dropdown-menu dropdown-menu-end settings-menu" aria-labelledby="settingsDropdown">
@@ -84,14 +111,1075 @@
         </div>
       </div>
     </div>
+
+    <style>
+      /* tab css */
+
+      .navbar-nav .nav-link {
+        margin: 0 10px;
+      }
+
+      .settings-btn {
+        background-color: #4058A7;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+      }
+
+      .settings-menu {
+        min-width: 150px;
+      }
+
+      .filter-input {
+        width: 100%;
+        padding: 5px;
+        margin: 5px 0;
+      }
+
+      .table-responsive {
+        margin-top: 20px;
+      }
+
+      .text-red {
+        color: red;
+      }
+
+      .edit-icon {
+        cursor: pointer;
+      }
+
+      .btn-action {
+        margin: 5px;
+      }
+
+      .container-fluid {
+        margin-bottom: -10px;
+      }
+
+
+      .navbar-nav .nav-link {
+        min-width: 150px;
+        /* Set a fixed minimum width for all tabs */
+        text-align: center;
+        /* Center the text within each tab */
+        margin: 0 5px;
+        /* Optional: adjust spacing between tabs */
+        padding: 10px 15px;
+        /* Ensure consistent padding */
+      }
+
+      .settings-menu {
+        min-width: 150px;
+      }
+
+      .edit-icon {
+        cursor: pointer;
+      }
+
+      .btn-action {
+        margin: 5px;
+      }
+
+      @media (max-width: 991px) {
+        .navbar-nav .nav-link {
+          min-width: 100%;
+          /* Full width on mobile for stacked tabs */
+          text-align: left;
+          /* Align left on mobile for better readability */
+        }
+      }
+
+
+      .nav-tabs .nav-link {
+        color: #3b4a9a;
+        border: none;
+        background-color: transparent;
+        font-weight: 500;
+      }
+
+      .nav-tabs .nav-link.active {
+        background-color: #4058A7 !important;
+        color: white !important;
+        /* border-radius: 5px; */
+      }
+
+      .settings-btn {
+        background-color: #4058A7;
+        color: white;
+        border-radius: 5px;
+        padding: 5px 10px;
+      }
+
+      .settings-btn:hover {
+        background-color: darkblue;
+        color: white;
+      }
+
+      .settings-menu {
+        background: white;
+        border-radius: 5px;
+      }
+    </style>
   </nav>
+
 
   <!-- Tab Content -->
   <div class="tab-content p-4" id="myTabContent">
-    <div class="tab-pane fade" id="user" role="tabpanel" aria-labelledby="user-tab">
-      <h4>User Management</h4>
+    <!-- admin tab start -->
+    <div class="tab-pane fade" id="admin" role="tabpanel" aria-labelledby="admin-tab">
+      <style>
+        .custom-tabs {
+          border: none;
+          padding: 10px;
+          border-radius: 50px;
+          display: flex;
+          justify-content: flex-end;
+        }
+
+        .custom-tabs .custom-tab-link {
+          border-radius: 50px;
+          padding: 8px 20px;
+          font-weight: 500;
+          color: #3b4a9a;
+          border: 1px solid #ddd;
+          margin-left: 8px;
+          width: 180px;
+          text-align: center;
+          background-color: transparent;
+        }
+
+        .custom-tabs .custom-tab-link.active {
+          background-color: #3b4a9a;
+          color: #fff;
+          border: none;
+        }
+
+        .custom-card {
+          border-radius: 8px;
+          padding: 15px;
+          background-color: #fff;
+          box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .custom-card h6 {
+          padding-bottom: 8px;
+          margin-bottom: 15px;
+          text-align: left;
+        }
+
+        .page-title {
+          font-size: 1.5rem;
+          font-weight: bold;
+          text-align: left;
+          margin: 0;
+        }
+
+        .table td {
+          border-bottom: none;
+        }
+
+        .table th {
+          border-bottom: 1px solid #dee2e6;
+        }
+
+        .btn-add {
+          background-color: #4058A7;
+          color: #fff;
+          border-radius: 6px;
+          font-size: 14px;
+          margin-top: 10px;
+        }
+
+        .btn-add:hover {
+          background-color: #2c4cc7;
+          color: #fff;
+        }
+
+        .action-icons i {
+          cursor: pointer;
+          margin-right: 8px;
+          font-size: 16px;
+          color: #fff;
+          background-color: #4058A7;
+          padding: 6px;
+          border-radius: 4px;
+          width: 28px;
+          height: 28px;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .action-icons i:hover {
+          background-color: #2c4cc7;
+        }
+
+        .custom-modal {
+          border: 1.5px solid #4058A7;
+          border-radius: 8px;
+          padding: 20px;
+          background: #fff;
+          max-width: 1200px;
+          margin: 80px auto;
+          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+          position: relative;
+        }
+
+        .custom-modal .form-control {
+          border-radius: 10px;
+          border: 1px solid #4058A7;
+          padding: 12px;
+        }
+
+        .btn-cancel {
+          border: 1px solid #4058A7;
+          border-radius: 25px;
+          background: #fff;
+          color: #4058A7;
+          padding: 8px 20px;
+        }
+
+        .btn-update,
+        .btn-primary {
+          border-radius: 25px;
+          background: #4058A7;
+          color: #fff;
+          padding: 8px 20px;
+        }
+
+        .close-btn {
+          position: absolute;
+          right: 15px;
+          top: 10px;
+          border: 1px solid #4058A7;
+          border-radius: 5px;
+          width: 28px;
+          height: 28px;
+          background: #fff;
+          text-align: center;
+          line-height: 20px;
+          font-size: 18px;
+          cursor: pointer;
+        }
+
+        .btn:hover {
+          background-color: #2c4cc7;
+          border-color: #2c4cc7;
+          color: #fff;
+        }
+
+        .perms-pills .nav-link {
+          border: 1px solid #3b5ba5;
+          border-radius: 999px;
+          padding: 6px 14px;
+          color: #3b5ba5;
+          background: #fff;
+          font-weight: 500;
+        }
+
+        .perms-pills .nav-link.active {
+          background: #3b5ba5;
+          color: #fff;
+        }
+
+        .modules-list li,
+        .modules-access li {
+          padding: 6px 0;
+        }
+
+        .perm-block {
+          border: 1px solid #e6e8f0;
+          border-radius: 10px;
+          padding: 12px;
+          background: #fff;
+        }
+
+        .perm-head {
+          display: grid;
+          grid-template-columns: 1fr 70px 70px;
+          font-weight: 600;
+          font-size: 14px;
+          margin-bottom: 8px;
+        }
+
+        .perm-head .title {
+          color: #3b5ba5;
+        }
+
+        .perm-head .rw {
+          text-align: center;
+          color: #3b5ba5;
+        }
+
+        .perm-grid {
+          display: grid;
+          grid-template-columns: 1fr 70px 70px;
+          row-gap: 8px;
+          align-items: center;
+          font-size: 14px;
+        }
+
+        .perm-grid .label {
+          padding-right: 8px;
+        }
+
+        .perm-grid .check {
+          text-align: center;
+        }
+
+        .form-check-input {
+          cursor: pointer;
+        }
+      </style>
+
+      <div class="container py-4">
+        <div class="d-flex flex-wrap justify-content-between align-items-center mb-4">
+          <h5 class="page-title">User Role</h5>
+          <ul class="nav custom-tabs" id="roleTabs" role="tablist">
+            <li class="nav-item">
+              <button class="nav-link custom-tab-link active" id="manage-tab" data-bs-toggle="tab"
+                data-bs-target="#manage" type="button" role="tab" onclick="updatePageTitle('Manage User Role')">Manage
+                User Role</button>
+            </li>
+            <li class="nav-item">
+              <button class="nav-link custom-tab-link" id="users-tab" data-bs-toggle="tab" data-bs-target="#users"
+                type="button" role="tab" onclick="updatePageTitle('All User')">All User</button>
+            </li>
+            <li class="nav-item">
+              <button class="nav-link custom-tab-link" id="resorts-tab" data-bs-toggle="tab" data-bs-target="#resorts"
+                type="button" role="tab" onclick="updatePageTitle('Resorts')">Resorts</button>
+            </li>
+          </ul>
+        </div>
+
+        <div class="custom-card">
+          <div class="tab-content p-0" id="roleTabsContent">
+            <div class="tab-pane fade show active" id="manage" role="tabpanel">
+              <h6>All Roles</h6>
+              <table class="table table-sm align-middle" id="rolesTable">
+                <thead>
+                  <tr>
+                    <th style="width: 70px;">Sr. No.</th>
+                    <th>Role Name</th>
+                  </tr>
+                </thead>
+                <tbody id="rolesTableBody">
+                  <tr>
+                    <td>1</td>
+                    <td>Admin</td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>Purchase</td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td>Account Team</td>
+                  </tr>
+                  <tr>
+                    <td>4</td>
+                    <td>Resort</td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="text-end">
+                <button class="btn btn-add" data-bs-toggle="modal" data-bs-target="#editModal">Add New Role</button>
+              </div>
+              <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                  <div class="modal-content custom-modal" style="max-width: 500px;">
+                    <button class="close-btn" data-bs-dismiss="modal">&times;</button>
+                    <h5 class="mb-4 fw-bold">Add New Role</h5>
+                    <div class="modal-body">
+                      <div class="mb-4">
+                        <input type="text" class="form-control" id="roleNameInput" placeholder="Enter Role Name">
+                      </div>
+                      <div class="d-flex justify-content-end gap-2">
+                        <button type="button" class="btn btn-cancel" data-bs-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn btn-update" id="submitRole">Submit</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="tab-pane fade" id="users" role="tabpanel">
+              <h6>All Users</h6>
+              <table class="table table-sm align-middle" id="usersTable">
+                <thead>
+                  <tr>
+                    <th style="width: 70px;">Sr. No.</th>
+                    <th>Name</th>
+                    <th>Department</th>
+                    <th>Email</th>
+                    <th>Phone Number</th>
+                    <th>Status</th>
+                    <th style="width: 100px;">Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="usersTableBody">
+                  <tr>
+                    <td>1</td>
+                    <td>John Doe</td>
+                    <td>Admin</td>
+                    <td>john@example.com</td>
+                    <td>+1 234-567-8900</td>
+                    <td>Active</td>
+                    <td class="action-icons">
+                      <i class="fas fa-edit" onclick="editUser(this)"></i>
+                      <i class="fas fa-trash" onclick="deleteUser(this)"></i>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>Jane Smith</td>
+                    <td>Accounts</td>
+                    <td>jane@example.com</td>
+                    <td>+1 987-654-3210</td>
+                    <td>Inactive</td>
+                    <td class="action-icons">
+                      <i class="fas fa-edit" onclick="editUser(this)"></i>
+                      <i class="fas fa-trash" onclick="deleteUser(this)"></i>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="text-end">
+                <button type="button" class="btn btn-add" data-bs-toggle="modal" data-bs-target="#addUserModal">
+                  Add New User
+                </button>
+              </div>
+              <!-- Modal for Adding/Editing User -->
+              <div class="modal fade" id="addUserModal" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog modal-xl modal-dialog-centered">
+                  <div class="modal-content custom-modal">
+                    <button class="close-btn" data-bs-dismiss="modal">&times;</button>
+                    <h5 class="mb-4 fw-bold">Add New User</h5>
+                    <div class="modal-body">
+                      <!-- Top Inputs -->
+                      <div class="row g-3">
+                        <div class="col-md-6">
+                          <label for="firstName" class="form-label">First Name</label>
+                          <input type="text" class="form-control" id="firstName" name="firstName"
+                            placeholder="First Name" />
+                        </div>
+                        <div class="col-md-6">
+                          <label for="lastName" class="form-label">Last Name</label>
+                          <input type="text" class="form-control" id="lastName" name="lastName"
+                            placeholder="Last Name" />
+                        </div>
+                        <div class="col-md-6">
+                          <label for="emailId" class="form-label">Email Id</label>
+                          <input type="email" class="form-control" id="emailId" name="email" placeholder="Email Id" />
+                        </div>
+                        <div class="col-md-6">
+                          <label for="department" class="form-label">Role</label>
+                          <select class="form-control" id="department" name="department">
+                            <option value="Purchase">Purchase</option>
+                            <option value="Admin">Admin</option>
+                            <option value="Accounts">Accounts</option>
+                            <option value="Resort">Resort</option>
+                          </select>
+                        </div>
+                        <div class="col-md-6">
+                          <label for="phoneNumber" class="form-label">Phone Number</label>
+                          <input type="text" class="form-control" id="phoneNumber" name="phone"
+                            placeholder="Phone Number" />
+                        </div>
+                        <div class="col-md-6 d-flex align-items-center">
+                          <label class="me-2 fw-bold">Status</label>
+                          <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" id="statusSwitch" name="status" checked />
+                            <label class="form-check-label" for="statusSwitch">Active</label>
+                          </div>
+                        </div>
+                      </div>
+                      <hr class="my-4" />
+                      <!-- Head row: labels + pills -->
+                      <div class="row align-items-center mb-2 g-2">
+                        <div class="col-lg-2 col-4">
+                          <h6 class="mb-0">Modules</h6>
+                        </div>
+                        <div class="col-lg-2 col-4">
+                          <h6 class="mb-0">Access</h6>
+                        </div>
+                        <div class="col-lg-8 col-12">
+                          <ul class="nav nav-pills gap-2 justify-content-start perms-pills" id="userTab" role="tablist">
+                            <li class="nav-item" role="presentation">
+                              <button class="nav-link active" id="qt-pill" data-bs-toggle="tab" data-bs-target="#tab-qt"
+                                type="button">
+                                Quotation Tracker
+                              </button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                              <button class="nav-link" id="po-pill" data-bs-toggle="tab" data-bs-target="#tab-po"
+                                type="button">
+                                PO_PI Tracker
+                              </button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                              <button class="nav-link" id="resort-pill" data-bs-toggle="tab"
+                                data-bs-target="#tab-resort" type="button">
+                                Resort
+                              </button>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                      <!-- ONE ROW: left (modules+access) + right (tab content) -->
+                      <div class="row g-3 align-items-start">
+                        <!-- LEFT: Modules + Access -->
+                        <div class="col-lg-4">
+                          <div class="row">
+                            <div class="col-6">
+                              <ul class="list-unstyled small mb-0 modules-list">
+                                <li>PO_PI Tracker</li>
+                                <li>Quotation Tracker</li>
+                                <li>Admin</li>
+                                <li>Dashboard</li>
+                                <li>Summary</li>
+                              </ul>
+                            </div>
+                            <div class="col-6">
+                              <ul class="list-unstyled small mb-0 modules-access">
+                                <li><input class="form-check-input me-2" type="checkbox" checked /></li>
+                                <li><input class="form-check-input me-2" type="checkbox" checked /></li>
+                                <li><input class="form-check-input me-2" type="checkbox" /></li>
+                                <li><input class="form-check-input me-2" type="checkbox" /></li>
+                                <li><input class="form-check-input me-2" type="checkbox" checked /></li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- RIGHT: Tab panes -->
+                        <div class="col-lg-8">
+                          <div class="tab-content">
+                            <!-- Quotation Tracker TAB -->
+                            <div class="tab-pane fade show active" id="tab-qt" role="tabpanel"
+                              aria-labelledby="qt-pill">
+                              <div class="row g-3">
+                                <!-- LEFT permission block -->
+                                <div class="col-md-6">
+                                  <div class="perm-block">
+                                    <div class="perm-head">
+                                      <span class="title">Access</span>
+                                      <span class="rw">Read</span>
+                                      <span class="rw">Write</span>
+                                    </div>
+                                    <div class="perm-grid">
+                                      <div class="label">Enquiry Number</div>
+                                      <div class="check"><input class="form-check-input" type="checkbox" /></div>
+                                      <div class="check"><input class="form-check-input" type="checkbox" /></div>
+                                      <div class="label">Enq. Received Date</div>
+                                      <div class="check"><input class="form-check-input" type="checkbox" /></div>
+                                      <div class="check"><input class="form-check-input" type="checkbox" /></div>
+                                      <div class="label">Sender's Email ID</div>
+                                      <div class="check"><input class="form-check-input" type="checkbox" /></div>
+                                      <div class="check"><input class="form-check-input" type="checkbox" /></div>
+                                      <div class="label">Client Name</div>
+                                      <div class="check"><input class="form-check-input" type="checkbox" /></div>
+                                      <div class="check"><input class="form-check-input" type="checkbox" /></div>
+                                      <div class="label">Email Subject Line</div>
+                                      <div class="check"><input class="form-check-input" type="checkbox" /></div>
+                                      <div class="check"><input class="form-check-input" type="checkbox" /></div>
+                                      <div class="label">Product Category</div>
+                                      <div class="check"><input class="form-check-input" type="checkbox" /></div>
+                                      <div class="check"><input class="form-check-input" type="checkbox" /></div>
+                                      <div class="label">Enq. Product Status</div>
+                                      <div class="check"><input class="form-check-input" type="checkbox" /></div>
+                                      <div class="check"><input class="form-check-input" type="checkbox" /></div>
+                                      <div class="label">Assigned To</div>
+                                      <div class="check"><input class="form-check-input" type="checkbox" /></div>
+                                      <div class="check"><input class="form-check-input" type="checkbox" /></div>
+                                      <div class="label">SLA</div>
+                                      <div class="check"><input class="form-check-input" type="checkbox" checked />
+                                      </div>
+                                      <div class="check"><input class="form-check-input" type="checkbox" /></div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <!-- RIGHT permission block -->
+                                <div class="col-md-6">
+                                  <div class="perm-block">
+                                    <div class="perm-head">
+                                      <span class="title">Access</span>
+                                      <span class="rw">Read</span>
+                                      <span class="rw">Write</span>
+                                    </div>
+                                    <div class="perm-grid">
+                                      <div class="label">Quotation Sent Status</div>
+                                      <div class="check"><input class="form-check-input" type="checkbox" checked />
+                                      </div>
+                                      <div class="check"><input class="form-check-input" type="checkbox" /></div>
+                                      <div class="label">Zoho Quotation No.</div>
+                                      <div class="check"><input class="form-check-input" type="checkbox" /></div>
+                                      <div class="check"><input class="form-check-input" type="checkbox" /></div>
+                                      <div class="label">Multiple Quotation</div>
+                                      <div class="check"><input class="form-check-input" type="checkbox" /></div>
+                                      <div class="check"><input class="form-check-input" type="checkbox" /></div>
+                                      <div class="label">Quotation Sent Date</div>
+                                      <div class="check"><input class="form-check-input" type="checkbox" /></div>
+                                      <div class="check"><input class="form-check-input" type="checkbox" checked />
+                                      </div>
+                                      <div class="label">SLA Status</div>
+                                      <div class="check"><input class="form-check-input" type="checkbox" /></div>
+                                      <div class="check"><input class="form-check-input" type="checkbox" checked />
+                                      </div>
+                                      <div class="label">CENPRO Remark</div>
+                                      <div class="check"><input class="form-check-input" type="checkbox" /></div>
+                                      <div class="check"><input class="form-check-input" type="checkbox" /></div>
+                                      <div class="label">Resort Remark</div>
+                                      <div class="check"><input class="form-check-input" type="checkbox" checked />
+                                      </div>
+                                      <div class="check"><input class="form-check-input" type="checkbox" /></div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <!-- PO_PI Tracker TAB -->
+                            <div class="tab-pane fade" id="tab-po" role="tabpanel" aria-labelledby="po-pill">
+                              <div class="row g-3">
+                                <div class="col-md-6">
+                                  <div class="perm-block">
+                                    <div class="perm-head">
+                                      <span class="title">Access</span>
+                                      <span class="rw">Read</span>
+                                      <span class="rw">Write</span>
+                                    </div>
+                                    <div class="perm-grid">
+                                      <div class="label">PO Number</div>
+                                      <div class="check"><input class="form-check-input" type="checkbox" checked />
+                                      </div>
+                                      <div class="check"><input class="form-check-input" type="checkbox" /></div>
+                                      <div class="label">PI Number</div>
+                                      <div class="check"><input class="form-check-input" type="checkbox" /></div>
+                                      <div class="check"><input class="form-check-input" type="checkbox" /></div>
+                                      <div class="label">Supplier Name</div>
+                                      <div class="check"><input class="form-check-input" type="checkbox" /></div>
+                                      <div class="check"><input class="form-check-input" type="checkbox" /></div>
+                                      <div class="label">Currency</div>
+                                      <div class="check"><input class="form-check-input" type="checkbox" /></div>
+                                      <div class="check"><input class="form-check-input" type="checkbox" /></div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="col-md-6">
+                                  <div class="perm-block">
+                                    <div class="perm-head">
+                                      <span class="title">Access</span>
+                                      <span class="rw">Read</span>
+                                      <span class="rw">Write</span>
+                                    </div>
+                                    <div class="perm-grid">
+                                      <div class="label">Amount</div>
+                                      <div class="check"><input class="form-check-input" type="checkbox" /></div>
+                                      <div class="check"><input class="form-check-input" type="checkbox" /></div>
+                                      <div class="label">PO Date</div>
+                                      <div class="check"><input class="form-check-input" type="checkbox" /></div>
+                                      <div class="check"><input class="form-check-input" type="checkbox" /></div>
+                                      <div class="label">Status</div>
+                                      <div class="check"><input class="form-check-input" type="checkbox" checked />
+                                      </div>
+                                      <div class="check"><input class="form-check-input" type="checkbox" /></div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <!-- Resort TAB -->
+                            <div class="tab-pane fade" id="tab-resort" role="tabpanel" aria-labelledby="resort-pill">
+                              <div class="row g-3">
+                                <div class="col-md-6">
+                                  <div class="perm-block">
+                                    <div class="perm-head">
+                                      <span class="title">Access</span>
+                                      <span class="rw">Read</span>
+                                      <span class="rw">Write</span>
+                                    </div>
+                                    <div class="perm-grid">
+                                      <div class="label">Resort Remark</div>
+                                      <div class="check"><input class="form-check-input" type="checkbox" checked />
+                                      </div>
+                                      <div class="check"><input class="form-check-input" type="checkbox" checked />
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="col-md-6"></div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- Submit -->
+                      <div class="text-start mt-4">
+                        <button class="btn btn-primary px-4">Submit</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="tab-pane fade" id="resorts" role="tabpanel">
+              <h6>All Resorts</h6>
+              <table class="table table-sm align-middle" id="resortsTable">
+                <thead>
+                  <tr>
+                    <th style="width: 70px;">Sr. No.</th>
+                    <th>Resorts Name</th>
+                    <th>Domain Name</th>
+                    <th>Display Name</th>
+                    <th style="width: 100px;">Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="resortsTableBody">
+                  <tr>
+                    <td>1</td>
+                    <td>Ozen Reserve Bolifushi</td>
+                    <td>Bolifushi.com</td>
+                    <td>ORB</td>
+                    <td class="action-icons">
+                      <i class="fas fa-edit" onclick="openEditResortModal(this)"></i>
+                      <i class="fas fa-trash" onclick="deleteResort(this)"></i>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>Resort 2</td>
+                    <td>Property Domain name</td>
+                    <td>Property Domain name</td>
+                    <td class="action-icons">
+                      <i class="fas fa-edit" onclick="openEditResortModal(this)"></i>
+                      <i class="fas fa-trash" onclick="deleteResort(this)"></i>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td>Resort 3</td>
+                    <td>Property Domain name</td>
+                    <td>Property Domain name</td>
+                    <td class="action-icons">
+                      <i class="fas fa-edit" onclick="openEditResortModal(this)"></i>
+                      <i class="fas fa-trash" onclick="deleteResort(this)"></i>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>4</td>
+                    <td>Resort 4</td>
+                    <td>Property Domain name</td>
+                    <td>Property Domain name</td>
+                    <td class="action-icons">
+                      <i class="fas fa-edit" onclick="openEditResortModal(this)"></i>
+                      <i class="fas fa-trash" onclick="deleteResort(this)"></i>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="text-end">
+                <button class="btn btn-add" data-bs-toggle="modal" data-bs-target="#addResortModal">Add New
+                  Resort</button>
+              </div>
+              <!-- Modal for Editing Resorts -->
+              <div class="modal fade" id="editResortModal" tabindex="-1" aria-labelledby="editResortModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                  <div class="modal-content custom-modal" style="max-width: 500px;">
+                    <button class="close-btn" data-bs-dismiss="modal">&times;</button>
+                    <h5 class="mb-4 fw-bold">Update Resort</h5>
+                    <div class="modal-body">
+                      <div class="mb-3">
+                        <input type="text" class="form-control" id="resortNameInput" placeholder="Enter Resort Name">
+                      </div>
+                      <div class="mb-3">
+                        <input type="text" class="form-control" id="domainNameInput" placeholder="Enter Domain Name">
+                      </div>
+                      <div class="mb-4">
+                        <input type="text" class="form-control" id="displayNameInput" placeholder="Enter Display Name">
+                      </div>
+                      <div class="d-flex justify-content-end gap-2">
+                        <button type="button" class="btn btn-cancel" data-bs-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn btn-update" onclick="submitResortEdit()">Update</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Modal for Adding New Resort -->
+              <div class="modal fade" id="addResortModal" tabindex="-1" aria-labelledby="addResortModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                  <div class="modal-content custom-modal" style="max-width: 500px;">
+                    <button class="close-btn" data-bs-dismiss="modal">&times;</button>
+                    <h5 class="mb-4 fw-bold">Add New Resort</h5>
+                    <div class="modal-body">
+                      <div class="mb-3">
+                        <input type="text" class="form-control" id="newResortNameInput" placeholder="Enter Resort Name">
+                      </div>
+                      <div class="mb-3">
+                        <input type="text" class="form-control" id="newDomainNameInput" placeholder="Enter Domain Name">
+                      </div>
+                      <div class="mb-4">
+                        <input type="text" class="form-control" id="newDisplayNameInput"
+                          placeholder="Enter Display Name">
+                      </div>
+                      <div class="d-flex justify-content-end gap-2">
+                        <button type="button" class="btn btn-cancel" data-bs-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn btn-update" onclick="submitNewResort()">Submit</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <script>
+        // Ensure Bootstrap tabs are initialized correctly
+        document.addEventListener('DOMContentLoaded', function () {
+          // Initialize Bootstrap tabs
+          const triggerTabList = document.querySelectorAll('#roleTabs button');
+          triggerTabList.forEach(function (triggerEl) {
+            const tabTrigger = new bootstrap.Tab(triggerEl);
+            triggerEl.addEventListener('click', function (event) {
+              event.preventDefault();
+              tabTrigger.show();
+            });
+          });
+
+          // Manually trigger the active tab on page load
+          const activeTab = document.querySelector('#roleTabs .custom-tab-link.active');
+          if (activeTab) {
+            const tab = new bootstrap.Tab(activeTab);
+            tab.show();
+          }
+        });
+
+        // Update page title when tab is clicked
+        function updatePageTitle(title) {
+          document.querySelector('.page-title').textContent = title;
+        }
+
+        // Add new role
+        document.getElementById("submitRole").addEventListener("click", function () {
+          const roleName = document.getElementById("roleNameInput").value.trim();
+          if (roleName) {
+            const tableBody = document.getElementById("rolesTableBody");
+            const newRow = document.createElement("tr");
+            const rowCount = tableBody.rows.length + 1;
+            newRow.innerHTML = `
+                    <td>${rowCount}</td>
+                    <td>${roleName}</td>
+                `;
+            tableBody.appendChild(newRow);
+            document.getElementById("roleNameInput").value = "";
+            bootstrap.Modal.getInstance(document.getElementById("editModal")).hide();
+          } else {
+            alert("Please enter a role name.");
+          }
+        });
+
+        // User Management
+        let userCount = document.querySelectorAll("#usersTableBody tr").length;
+
+        // Update Status Label
+        const statusSwitch = document.querySelector("#statusSwitch");
+        const statusLabel = document.querySelector("label[for='statusSwitch']");
+        statusSwitch.addEventListener("change", function () {
+          statusLabel.innerText = this.checked ? "Active" : "Inactive";
+        });
+
+        // Add/Edit User
+        document.querySelector("#addUserModal .btn-primary").addEventListener("click", function () {
+          const firstName = document.querySelector('#addUserModal input[placeholder="First Name"]').value.trim();
+          const lastName = document.querySelector('#addUserModal input[placeholder="Last Name"]').value.trim();
+          const email = document.querySelector('#addUserModal input[placeholder="Email Id"]').value.trim();
+          const phone = document.querySelector('#addUserModal input[placeholder="Phone Number"]').value.trim();
+          const department = document.querySelector('#addUserModal select').value;
+          const status = statusSwitch.checked ? "Active" : "Inactive";
+
+          if (!firstName || !lastName || !email || !phone) {
+            alert("Please fill all required fields!");
+            return;
+          }
+
+          const modal = document.getElementById("addUserModal");
+          const isEditMode = modal.dataset.isEdit === "true";
+          const rowIndex = parseInt(modal.dataset.rowIndex) || 0;
+
+          if (isEditMode) {
+            const tableBody = document.getElementById("usersTableBody");
+            const row = tableBody.rows[rowIndex];
+            row.cells[1].textContent = `${firstName} ${lastName}`;
+            row.cells[2].textContent = department;
+            row.cells[3].textContent = email;
+            row.cells[4].textContent = phone;
+            row.cells[5].textContent = status;
+          } else {
+            userCount++;
+            const newRow = `
+                    <tr>
+                        <td>${userCount}</td>
+                        <td>${firstName} ${lastName}</td>
+                        <td>${department}</td>
+                        <td>${email}</td>
+                        <td>${phone}</td>
+                        <td>${status}</td>
+                        <td class="action-icons">
+                            <i class="fas fa-edit" onclick="editUser(this)"></i>
+                            <i class="fas fa-trash" onclick="deleteUser(this)"></i>
+                        </td>
+                    </tr>
+                `;
+            document.querySelector("#usersTableBody").insertAdjacentHTML("beforeend", newRow);
+          }
+
+          resetModal();
+        });
+
+        // Edit User
+        window.editUser = function (icon) {
+          const row = icon.closest("tr");
+          const cells = row.cells;
+          const name = cells[1].textContent.split(" ");
+          const firstName = name[0] || "";
+          const lastName = name.slice(1).join(" ") || "";
+          const department = cells[2].textContent;
+          const email = cells[3].textContent;
+          const phone = cells[4].textContent;
+          const status = cells[5].textContent.trim();
+
+          document.querySelector('#addUserModal input[placeholder="First Name"]').value = firstName;
+          document.querySelector('#addUserModal input[placeholder="Last Name"]').value = lastName;
+          document.querySelector('#addUserModal input[placeholder="Email Id"]').value = email;
+          document.querySelector('#addUserModal input[placeholder="Phone Number"]').value = phone;
+          document.querySelector('#addUserModal select').value = department;
+
+          statusSwitch.checked = status === "Active";
+          statusLabel.innerText = status === "Active" ? "Active" : "Inactive";
+
+          const modal = document.getElementById("addUserModal");
+          modal.dataset.isEdit = "true";
+          modal.dataset.rowIndex = row.rowIndex - 1;
+          document.querySelector("#addUserModal h5").innerText = "Edit User";
+          document.querySelector("#addUserModal .btn-primary").innerText = "Update";
+
+          new bootstrap.Modal(modal).show();
+        };
+
+        // Delete User
+        window.deleteUser = function (icon) {
+          if (confirm("Are you sure you want to delete this user?")) {
+            const row = icon.closest("tr");
+            row.remove();
+            document.querySelectorAll("#usersTableBody tr").forEach((r, i) => {
+              r.cells[0].textContent = i + 1;
+            });
+            userCount--;
+          }
+        };
+
+        // Reset Modal
+        function resetModal() {
+          const modal = document.getElementById("addUserModal");
+          modal.dataset.isEdit = "false";
+          modal.dataset.rowIndex = "";
+          document.querySelectorAll("#addUserModal input, #addUserModal select").forEach(el => {
+            if (el.type === "checkbox") {
+              el.checked = true;
+            } else {
+              el.value = "";
+            }
+          });
+          document.querySelector("#addUserModal h5").innerText = "Add New User";
+          document.querySelector("#addUserModal .btn-primary").innerText = "Submit";
+          statusLabel.innerText = "Active";
+          bootstrap.Modal.getInstance(modal).hide();
+        };
+
+        // Resort Management
+        function openEditResortModal(icon) {
+          const row = icon.closest("tr");
+          document.getElementById("resortNameInput").value = row.cells[1].textContent;
+          document.getElementById("domainNameInput").value = row.cells[2].textContent;
+          document.getElementById("displayNameInput").value = row.cells[3].textContent;
+          const modal = document.getElementById("editResortModal");
+          modal.dataset.rowIndex = row.rowIndex - 1;
+          new bootstrap.Modal(modal).show();
+        }
+
+        function submitResortEdit() {
+          const resortName = document.getElementById("resortNameInput").value.trim();
+          const domainName = document.getElementById("domainNameInput").value.trim();
+          const displayName = document.getElementById("displayNameInput").value.trim();
+
+          if (resortName && domainName && displayName) {
+            const rowIndex = document.getElementById("editResortModal").dataset.rowIndex;
+            const row = document.getElementById("resortsTableBody").rows[rowIndex];
+            row.cells[1].textContent = resortName;
+            row.cells[2].textContent = domainName;
+            row.cells[3].textContent = displayName;
+            document.getElementById("resortNameInput").value = "";
+            document.getElementById("domainNameInput").value = "";
+            document.getElementById("displayNameInput").value = "";
+            bootstrap.Modal.getInstance(document.getElementById("editResortModal")).hide();
+          } else {
+            alert("Please fill in all fields.");
+          }
+        }
+
+        function submitNewResort() {
+          const resortName = document.getElementById("newResortNameInput").value.trim();
+          const domainName = document.getElementById("newDomainNameInput").value.trim();
+          const displayName = document.getElementById("newDisplayNameInput").value.trim();
+
+          if (resortName && domainName && displayName) {
+            const tableBody = document.getElementById("resortsTableBody");
+            const newRow = document.createElement("tr");
+            const rowCount = tableBody.rows.length + 1;
+            newRow.innerHTML = `
+                    <td>${rowCount}</td>
+                    <td>${resortName}</td>
+                    <td>${domainName}</td>
+                    <td>${displayName}</td>
+                    <td class="action-icons">
+                        <i class="fas fa-edit" onclick="openEditResortModal(this)"></i>
+                        <i class="fas fa-trash" onclick="deleteResort(this)"></i>
+                    </td>
+                `;
+            tableBody.appendChild(newRow);
+            document.getElementById("newResortNameInput").value = "";
+            document.getElementById("newDomainNameInput").value = "";
+            document.getElementById("newDisplayNameInput").value = "";
+            bootstrap.Modal.getInstance(document.getElementById("addResortModal")).hide();
+          } else {
+            alert("Please fill in all fields.");
+          }
+        }
+
+        function deleteResort(icon) {
+          const row = icon.closest("tr");
+          const tableBody = document.getElementById("resortsTableBody");
+          tableBody.removeChild(row);
+          const rows = tableBody.querySelectorAll("tr");
+          rows.forEach((row, index) => {
+            row.cells[0].textContent = index + 1;
+          });
+        }
+      </script>
+    </div>
+
+
+    <div class="tab-pane fade" id="dashboard" role="tabpanel" aria-labelledby="dashboard-tab">
+      <h4>Dashboard</h4>
       <p>Here you can manage users, add new ones, edit roles, and more.</p>
     </div>
+    <div class="tab-pane fade" id="summary" role="tabpanel" aria-labelledby="summary-tab">
+      <h4>summary </h4>
+      <p>Here you can manage users, add new ones, edit roles, and more.</p>
+    </div>
+
     <!-- All PO_PI Tracker Tab -->
     <div class="tab-pane fade" id="po" role="tabpanel" aria-labelledby="po-tab">
       <div class="p-4">
@@ -134,7 +1222,7 @@
                   <th>Sr. No.</th>
                   <th>Description</th>
                   <th>CENPRO Quote</th>
-                  <th>Resort po #</th>       
+                  <th>Resort po #</th>
                   <th>PRO INV</th>
                   <th>PI Date</th>
                   <th>MVR Amount</th>
@@ -419,60 +1507,51 @@
       </div>
     </div>
   </div>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Bootstrap JS and Popper.js -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
   <script>
-    // Search for PO tab
-    document.getElementById('poSearchInput').addEventListener('input', function () {
-      const searchTerm = this.value.toLowerCase();
-      const tableRows = document.querySelectorAll('#poDataTable tr');
-      tableRows.forEach(row => {
-        const text = row.textContent.toLowerCase();
-        row.style.display = text.includes(searchTerm) ? '' : 'none';
-      });
-    });
-
-    // Column filters for PO tab
-    document.querySelectorAll('#po thead .filter-input').forEach((input, index) => {
-      input.addEventListener('input', function () {
-        const filterValue = this.value.toLowerCase();
-        const tableRows = document.querySelectorAll('#poDataTable tr');
+    // Generic Search Function for all tabs
+    function setupSearch(inputId, tableId) {
+      document.getElementById(inputId).addEventListener('input', function () {
+        const searchTerm = this.value.toLowerCase();
+        const tableRows = document.querySelectorAll(`#${tableId} tr`);
         tableRows.forEach(row => {
-          const cell = row.cells[index];
-          if (cell) {
-            const cellText = cell.textContent.toLowerCase();
-            row.style.display = (cellText.includes(filterValue) || filterValue === '') ? '' : 'none';
-          }
+          const text = row.textContent.toLowerCase();
+          row.style.display = text.includes(searchTerm) ? '' : 'none';
         });
       });
-    });
+    }
 
-    // Search functionality for Quotation tab
-    document.getElementById('searchInput').addEventListener('input', function () {
-      const searchTerm = this.value.toLowerCase();
-      const tableRows = document.querySelectorAll('#dataTable tr');
-      tableRows.forEach(row => {
-        const text = row.textContent.toLowerCase();
-        row.style.display = text.includes(searchTerm) ? '' : 'none';
-      });
-    });
-
-    // Column filter functionality for Quotation tab
-    document.querySelectorAll('#quotation thead .filter-input').forEach((input, index) => {
-      input.addEventListener('input', function () {
-        const filterValue = this.value.toLowerCase();
-        const tableRows = document.querySelectorAll('#dataTable tr');
-        tableRows.forEach(row => {
-          const cell = row.cells[index];
-          if (cell) {
-            const cellText = cell.textContent.toLowerCase();
-            row.style.display = (cellText.includes(filterValue) || filterValue === '') ? '' : 'none';
-          }
+    // Generic Column Filter Function for all tabs
+    function setupColumnFilters(tabId, tableId) {
+      document.querySelectorAll(`#${tabId} thead .filter-input`).forEach((input, index) => {
+        input.addEventListener('input', function () {
+          const filterValue = this.value.toLowerCase();
+          const tableRows = document.querySelectorAll(`#${tableId} tr`);
+          tableRows.forEach(row => {
+            const cell = row.cells[index];
+            if (cell) {
+              const cellText = cell.textContent.toLowerCase();
+              row.style.display = (cellText.includes(filterValue) || filterValue === '') ? '' : 'none';
+            }
+          });
         });
       });
-    });
+    }
 
-    // Export placeholders
+    // Setup search and filters for each tab
+    setupSearch('adminSearchInput', 'adminDataTable');
+    setupSearch('summarySearchInput', 'summaryDataTable');
+    setupSearch('poSearchInput', 'poDataTable');
+    setupSearch('searchInput', 'dataTable');
+
+    setupColumnFilters('admin', 'adminDataTable');
+    setupColumnFilters('summary', 'summaryDataTable');
+    setupColumnFilters('po', 'poDataTable');
+    setupColumnFilters('quotation', 'dataTable');
+
+    // Export buttons
     document.querySelectorAll('.btn-action').forEach(button => {
       button.addEventListener('click', function () {
         if (this.textContent === 'Copy') alert('Copy functionality here');
@@ -508,13 +1587,12 @@
       }
     });
 
-    // Tab navigation (ensure Bootstrap tabs work with navbar)
+    // Tab navigation
     document.querySelectorAll('.nav-link').forEach(link => {
       link.addEventListener('click', function (e) {
         e.preventDefault();
         document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
         this.classList.add('active');
-        // Close navbar collapse on mobile after click
         if (window.innerWidth < 992) {
           const collapse = document.querySelector('.navbar-collapse');
           const bsCollapse = new bootstrap.Collapse(collapse, { toggle: false });
