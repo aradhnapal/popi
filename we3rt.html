@@ -8,6 +8,53 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
   <link rel="stylesheet" href="./css/style.css">
+  <style>
+    /* Custom styles for fixed table width, full content display, and scrollbar */
+    .table-container {
+      max-width: 100%;
+      overflow-x: auto;
+    }
+
+    .table-fixed {
+      width: 2000px;
+      /* Fixed width to enforce horizontal scrollbar on larger screens */
+      table-layout: auto;
+      /* Allow columns to adjust based on content */
+    }
+
+    .table-fixed th,
+    .table-fixed td {
+      white-space: normal;
+      /* Allow text to wrap */
+      word-wrap: break-word;
+      /* Ensure long words break to fit */
+      padding: 8px;
+      /* Add padding for readability */
+    }
+
+    .filter-input {
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    /* Ensure responsiveness for tables on small screens */
+    @media (max-width: 768px) {
+      .table-fixed {
+        width: 100%;
+        /* Remove fixed width on mobile for better fit */
+      }
+
+      .action-buttons .btn {
+        margin-bottom: 0.5rem;
+        /* Stack buttons vertically on mobile */
+      }
+
+      .search-section {
+        margin-top: 1rem;
+        /* Add space for search on mobile */
+      }
+    }
+  </style>
 </head>
 
 <body>
@@ -28,7 +75,7 @@
         <!-- Tabs -->
         <ul class="navbar-nav m-auto mb-2 mb-lg-0 nav-tabs border-0" id="myTab" role="tablist">
           <li class="nav-item" role="presentation">
-            <button class="nav-link active" id="admin-tab" data-bs-toggle="tab" data-bs-target="#admin" type="button"
+            <button class="nav-link" id="admin-tab" data-bs-toggle="tab" data-bs-target="#admin" type="button"
               role="tab">Admin</button>
           </li>
           <li class="nav-item" role="presentation">
@@ -44,7 +91,7 @@
               PO_PI Tracker</button>
           </li>
           <li class="nav-item" role="presentation">
-            <button class="nav-link " id="quotation-tab" data-bs-toggle="tab" data-bs-target="#quotation"
+            <button class="nav-link active" id="quotation-tab" data-bs-toggle="tab" data-bs-target="#quotation"
               type="button" role="tab">Quotation Tracker</button>
           </li>
         </ul>
@@ -67,6 +114,7 @@
 
     <style>
       /* tab css */
+
       .navbar-nav .nav-link {
         margin: 0 10px;
       }
@@ -79,6 +127,16 @@
 
       .settings-menu {
         min-width: 150px;
+      }
+
+      .filter-input {
+        width: 100%;
+        padding: 5px;
+        margin: 5px 0;
+      }
+
+      .table-responsive {
+        margin-top: 20px;
       }
 
       .text-red {
@@ -97,11 +155,16 @@
         margin-bottom: -10px;
       }
 
+
       .navbar-nav .nav-link {
         min-width: 150px;
+        /* Set a fixed minimum width for all tabs */
         text-align: center;
+        /* Center the text within each tab */
         margin: 0 5px;
+        /* Optional: adjust spacing between tabs */
         padding: 10px 15px;
+        /* Ensure consistent padding */
       }
 
       .settings-menu {
@@ -119,9 +182,12 @@
       @media (max-width: 991px) {
         .navbar-nav .nav-link {
           min-width: 100%;
+          /* Full width on mobile for stacked tabs */
           text-align: left;
+          /* Align left on mobile for better readability */
         }
       }
+
 
       .nav-tabs .nav-link {
         color: #3b4a9a;
@@ -133,6 +199,7 @@
       .nav-tabs .nav-link.active {
         background-color: #4058A7 !important;
         color: white !important;
+        /* border-radius: 5px; */
       }
 
       .settings-btn {
@@ -154,10 +221,11 @@
     </style>
   </nav>
 
+
   <!-- Tab Content -->
   <div class="tab-content p-4" id="myTabContent">
     <!-- admin tab start -->
-    <div class="tab-pane fade show active " id="admin" role="tabpanel" aria-labelledby="admin-tab">
+    <div class="tab-pane fade" id="admin" role="tabpanel" aria-labelledby="admin-tab">
       <style>
         .custom-tabs {
           border: none;
@@ -1102,6 +1170,7 @@
       </script>
     </div>
 
+
     <div class="tab-pane fade" id="dashboard" role="tabpanel" aria-labelledby="dashboard-tab">
       <h4>Dashboard</h4>
       <p>Here you can manage users, add new ones, edit roles, and more.</p>
@@ -1165,30 +1234,31 @@
         }
       </style>
 
+
       <div class="container py-4">
+
         <!-- Summary + Tabs -->
         <div class="summary-tabs">
           <h6 class="summary-title">Summary</h6>
           <ul class="nav custom-tabs" id="propertyTabs" role="tablist">
             <li class="nav-item">
-              <a class="nav-link custom-tab-link active" id="prop1-tab" data-bs-toggle="tab" href="#prop1"
-                role="tab">Property 1</a>
+              <a class="nav-link  custom-tab-link active" id="prop1-tab" data-bs-toggle="tab" href="#prop1" role="tab">Property 1</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link custom-tab-link" id="prop2-tab" data-bs-toggle="tab" href="#prop2" role="tab">Property
-                2</a>
+              <a class="nav-link custom-tab-link" id="prop2-tab" data-bs-toggle="tab" href="#prop2" role="tab">Property 2</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link custom-tab-link" id="prop3-tab" data-bs-toggle="tab" href="#prop3" role="tab">Property
-                3</a>
+              <a class="nav-link custom-tab-link" id="prop3-tab" data-bs-toggle="tab" href="#prop3" role="tab">Property 3</a>
             </li>
           </ul>
         </div>
 
         <!-- Tab Content -->
         <div class="tab-content" id="propertyTabsContent">
+
           <!-- Property 1 -->
           <div class="tab-pane fade show active" id="prop1" role="tabpanel">
+
             <!-- Card 1 -->
             <div class="custom-card">
               <div class="custom-card-header">OLM USD DUE AMOUNT</div>
@@ -1437,22 +1507,432 @@
               <div class="payment-note">IMMEDIATE PAYMENT DUE AMOUNTING MVR : $700</div>
             </div>
           </div>
+
         </div>
       </div>
     </div>
 
     <!-- All PO_PI Tracker Tab -->
     <div class="tab-pane fade" id="po" role="tabpanel" aria-labelledby="po-tab">
-      <h1>popi</h1>
+      <div class="p-4">
+        <h5 class="text-primary fw-bold"> PO_PI</h5>
+
+        <!-- Action buttons -->
+        <div class="row mb-3">
+          <div class="col-md-8 action-buttons d-flex flex-wrap gap-2">
+            <button class="btn btn-action">Copy</button>
+            <button class="btn btn-action">CSV</button>
+            <button class="btn btn-action">Excel</button>
+            <button class="btn btn-action">PDF</button>
+            <button class="btn btn-action">Print</button>
+            <div class="btn-group">
+              <button class="btn btn-action dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                Show 10 rows
+              </button>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Show 10 rows</a></li>
+                <li><a class="dropdown-item" href="#">Show 25 rows</a></li>
+                <li><a class="dropdown-item" href="#">Show 50 rows</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-4 search-section">
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="Search..." id="poSearchInput">
+              <button class="btn btn-primary submit-btn" type="button">Submit</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Table -->
+        <div class="table-container">
+          <div class="table-responsive">
+            <table class="table table-hover table-bordered table-fixed" id="po">
+              <thead class="table-primary">
+                <tr>
+                  <th><img src="category-icon.png" alt="" width="16"> Categories</th>
+                  <th>Sr. No.</th>
+                  <th>Description</th>
+                  <th>CENPRO Quote</th>
+                  <th>Resort po #</th>
+                  <th>PRO INV</th>
+                  <th>PI Date</th>
+                  <th>MVR Amount</th>
+                  <th>USD Amount</th>
+                  <th>Min. Pay %</th>
+                  <th>Min. Amt Required</th>
+                  <th>Min. Amount</th>
+                  <th>Pay Date</th>
+                  <th>Paid %</th>
+                  <th>Total Amount Due</th>
+                  <th>Min. Amount Due</th>
+                  <th>Shipping Mode</th>
+                  <th>ETA</th>
+                  <th>Delivery Note</th>
+                  <th>TI#</th>
+                  <th>TI Date</th>
+                  <th>TI Amount</th>
+                  <th>CENPRO Remark</th>
+                  <th>Resort Remark</th>
+                </tr>
+                <tr>
+                  <th><input type="text" class="filter-input" placeholder="Search by category"></th>
+                  <th><input type="text" class="filter-input" placeholder="No."></th>
+                  <th><input type="text" class="filter-input" placeholder="Description"></th>
+                  <th><input type="text" class="filter-input" placeholder="Quote"></th>
+                  <th><input type="text" class="filter-input" placeholder="PO number"></th>
+                  <th><input type="text" class="filter-input" placeholder="PRO INV"></th>
+                  <th><input type="text" class="filter-input" placeholder="Date"></th>
+                  <th><input type="text" class="filter-input" placeholder="MVR"></th>
+                  <th><input type="text" class="filter-input" placeholder="Amount"></th>
+                  <th><input type="text" class="filter-input" placeholder="Min. Pay %"></th>
+                  <th><input type="text" class="filter-input" placeholder="Amt. Req."></th>
+                  <th><input type="text" class="filter-input" placeholder="Amt. Rec."></th>
+                  <th><input type="text" class="filter-input" placeholder="Pay Date"></th>
+                  <th><input type="text" class="filter-input" placeholder="Paid %"></th>
+                  <th><input type="text" class="filter-input" placeholder="Amt. Due"></th>
+                  <th><input type="text" class="filter-input" placeholder="Min. Amt. Due"></th>
+                  <th><input type="text" class="filter-input" placeholder="Mode"></th>
+                  <th><input type="text" class="filter-input" placeholder="ETA"></th>
+                  <th><input type="text" class="filter-input" placeholder="D. Note"></th>
+                  <th><input type="text" class="filter-input" placeholder="TI#"></th>
+                  <th><input type="text" class="filter-input" placeholder="TI Date"></th>
+                  <th><input type="text" class="filter-input" placeholder="TI Amt"></th>
+                  <th><input type="text" class="filter-input" placeholder="Remark"></th>
+                  <th><input type="text" class="filter-input" placeholder="Remark"></th>
+                </tr>
+              </thead>
+              <tbody id="poDataTable">
+                <tr>
+                  <td>Operational orders-Overseas</td>
+                  <td>1</td>
+                  <td>Description</td>
+                  <td><i class="fas fa-edit edit-icon"></i></td>
+                  <td>Madhu-123</td>
+                  <td>1111</td>
+                  <td>28/07/25</td>
+                  <td>MVR-123</td>
+                  <td>$1111</td>
+                  <td>75%</td>
+                  <td>542.25</td>
+                  <td>361.50</td>
+                  <td>28/07/25</td>
+                  <td>50%</td>
+                  <td>362</td>
+                  <td>360</td>
+                  <td>Delivered</td>
+                  <td>50</td>
+                  <td>Delivered</td>
+                  <td>Delivered</td>
+                  <td>20/03/25</td>
+                  <td>300</td>
+                  <td>Remark</td>
+                  <td>OK</td>
+                </tr>
+                <tr>
+                  <td>Operational orders-Local</td>
+                  <td>2</td>
+                  <td>Description</td>
+                  <td><i class="fas fa-edit edit-icon"></i></td>
+                  <td>Madhu-123</td>
+                  <td>1234</td>
+                  <td>28/07/25</td>
+                  <td>MVR-123</td>
+                  <td>$1234</td>
+                  <td>50%</td>
+                  <td>542.25</td>
+                  <td>361.50</td>
+                  <td>28/07/25</td>
+                  <td>50%</td>
+                  <td>362</td>
+                  <td>360</td>
+                  <td>Delivered</td>
+                  <td>50</td>
+                  <td>Delivered</td>
+                  <td>Delivered</td>
+                  <td>20/03/25</td>
+                  <td>300</td>
+                  <td>Remark</td>
+                  <td>OK</td>
+                </tr>
+                <tr>
+                  <td>CAPEX</td>
+                  <td>3</td>
+                  <td>Description</td>
+                  <td><i class="fas fa-edit edit-icon"></i></td>
+                  <td>Madhu-123</td>
+                  <td>1452</td>
+                  <td>28/07/25</td>
+                  <td>MVR-123</td>
+                  <td>$1452</td>
+                  <td>100%</td>
+                  <td>542.25</td>
+                  <td>361.50</td>
+                  <td>28/07/25</td>
+                  <td>50%</td>
+                  <td>362</td>
+                  <td>360</td>
+                  <td>Delivered</td>
+                  <td>50</td>
+                  <td>Delivered</td>
+                  <td>Delivered</td>
+                  <td>20/03/25</td>
+                  <td>300</td>
+                  <td>Remark</td>
+                  <td>OK</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <div class="tab-pane fade  " id="quotation" role="tabpanel" aria-labelledby="quotation-tab">
-      <h5 class="text-primary fw-bold">Quotation Tracker</h5>
+    <div class="tab-pane fade show active" id="quotation" role="tabpanel" aria-labelledby="quotation-tab">
+      <div class="p-4">
+        <h5 class="text-primary fw-bold">Quotation Tracker</h5>
+
+        <!-- Action buttons -->
+        <div class="row mb-3">
+          <div class="col-md-8 action-buttons d-flex flex-wrap gap-2">
+            <button class="btn btn-action">Copy</button>
+            <button class="btn btn-action">CSV</button>
+            <button class="btn btn-action">Excel</button>
+            <button class="btn btn-action">PDF</button>
+            <button class="btn btn-action">Print</button>
+            <div class="btn-group">
+              <button class="btn btn-action dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                Show 10 rows
+              </button>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Show 10 rows</a></li>
+                <li><a class="dropdown-item" href="#">Show 25 rows</a></li>
+                <li><a class="dropdown-item" href="#">Show 50 rows</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-4 search-section">
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="Search..." id="searchInput">
+              <button class="btn btn-primary submit-btn" type="button">Submit</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Table -->
+        <div class="table-container">
+          <div class="table-responsive">
+            <table class="table table-hover table-fixed">
+              <thead>
+                <tr>
+                  <th>Enquiry Number</th>
+                  <th>Enq. Number Date</th>
+                  <th>Sender's Email ID</th>
+                  <th>Client Name</th>
+                  <th>Product Category</th>
+                  <th>Email Subject Line</th>
+                  <th>Assigned To</th>
+                  <th>SLA</th>
+                  <th>Enq. Sent Status</th>
+                  <th>Enquiry Sent Status</th>
+                  <th>Zoho Quotation No.</th>
+                  <th>Multiple Quotation</th>
+                  <th>Quotation Sent Date</th>
+                  <th>SLA Status</th>
+                  <th>Remarks</th>
+                </tr>
+                <tr>
+                  <th><input type="text" class="filter-input" placeholder="Enq. No."></th>
+                  <th><input type="text" class="filter-input" placeholder="Rec. Date"></th>
+                  <th><input type="text" class="filter-input" placeholder="Enter Email ID"></th>
+                  <th><input type="text" class="filter-input" placeholder="Enter Name"></th>
+                  <th><input type="text" class="filter-input" placeholder="Enter Category"></th>
+                  <th><input type="text" class="filter-input" placeholder="Enter Subject"></th>
+                  <th><input type="text" class="filter-input" placeholder="Enter Group"></th>
+                  <th><input type="text" class="filter-input" placeholder="By SLA"></th>
+                  <th><input type="text" class="filter-input" placeholder="Search by status"></th>
+                  <th><input type="text" class="filter-input" placeholder="Sent status"></th>
+                  <th><input type="text" class="filter-input" placeholder="Enter Quote No."></th>
+                  <th><input type="text" class="filter-input" placeholder="Enter Color"></th>
+                  <th><input type="text" class="filter-input" placeholder="Search by Date"></th>
+                  <th><input type="text" class="filter-input" placeholder="Check Status"></th>
+                  <th><input type="text" class="filter-input" placeholder="Enter Remark"></th>
+                </tr>
+              </thead>
+              <tbody id="dataTable">
+                <tr>
+                  <td>2025-1</td>
+                  <td>20-Mar-25</td>
+                  <td>iammanoj914@gmail.com</td>
+                  <td>iammanoj914</td>
+                  <td>Category</td>
+                  <td>Email Subject</td>
+                  <td>Group 1</td>
+                  <td>12 Days</td>
+                  <td class="status-complete">Completed</td>
+                  <td class="status-complete">Completed</td>
+                  <td>50</td>
+                  <td></td>
+                  <td>20-Mar-25</td>
+                  <td>Within SLA</td>
+                  <td>OK</td>
+                </tr>
+                <tr>
+                  <td>2025-1</td>
+                  <td>20-Mar-25</td>
+                  <td>iammanoj914@gmail.com</td>
+                  <td>iammanoj914</td>
+                  <td>Category</td>
+                  <td>Email Subject</td>
+                  <td>Group 1</td>
+                  <td>12 Days</td>
+                  <td class="status-complete">Completed</td>
+                  <td class="status-complete">Completed</td>
+                  <td>50</td>
+                  <td></td>
+                  <td>20-Mar-25</td>
+                  <td>Within SLA</td>
+                  <td>OK</td>
+                </tr>
+                <tr>
+                  <td>2025-1</td>
+                  <td>20-Mar-25</td>
+                  <td class="text-red">Sender's Email ID <i class="fas fa-edit edit-icon ms-2"></i></td>
+                  <td class="text-red">Name <i class="fas fa-edit edit-icon ms-2"></i></td>
+                  <td>Category</td>
+                  <td>Email Subject <i class="fas fa-edit edit-icon ms-2"></i></td>
+                  <td>Group 1</td>
+                  <td>12 Days</td>
+                  <td class="status-complete">Completed</td>
+                  <td class="status-complete">Completed</td>
+                  <td>50</td>
+                  <td></td>
+                  <td>20-Mar-25</td>
+                  <td>Within SLA</td>
+                  <td><i class="fas fa-edit edit-icon"></i></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Edit Modal -->
+  <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="editModalLabel">Enter Remark</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="mb-3">
+            <textarea class="form-control" id="remarkInput" placeholder="Enter Remark" rows="6"></textarea>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary submit-btn" id="submitRemark">Submit</button>
+        </div>
+      </div>
     </div>
   </div>
   <!-- Bootstrap JS and Popper.js -->
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+  <script>
+    // Generic Search Function for all tabs
+    function setupSearch(inputId, tableId) {
+      document.getElementById(inputId).addEventListener('input', function () {
+        const searchTerm = this.value.toLowerCase();
+        const tableRows = document.querySelectorAll(`#${tableId} tr`);
+        tableRows.forEach(row => {
+          const text = row.textContent.toLowerCase();
+          row.style.display = text.includes(searchTerm) ? '' : 'none';
+        });
+      });
+    }
+
+    // Generic Column Filter Function for all tabs
+    function setupColumnFilters(tabId, tableId) {
+      document.querySelectorAll(`#${tabId} thead .filter-input`).forEach((input, index) => {
+        input.addEventListener('input', function () {
+          const filterValue = this.value.toLowerCase();
+          const tableRows = document.querySelectorAll(`#${tableId} tr`);
+          tableRows.forEach(row => {
+            const cell = row.cells[index];
+            if (cell) {
+              const cellText = cell.textContent.toLowerCase();
+              row.style.display = (cellText.includes(filterValue) || filterValue === '') ? '' : 'none';
+            }
+          });
+        });
+      });
+    }
+
+    // Setup search and filters for each tab
+    setupSearch('adminSearchInput', 'adminDataTable');
+    setupSearch('summarySearchInput', 'summaryDataTable');
+    setupSearch('poSearchInput', 'poDataTable');
+    setupSearch('searchInput', 'dataTable');
+
+    setupColumnFilters('admin', 'adminDataTable');
+    setupColumnFilters('summary', 'summaryDataTable');
+    setupColumnFilters('po', 'poDataTable');
+    setupColumnFilters('quotation', 'dataTable');
+
+    // Export buttons
+    document.querySelectorAll('.btn-action').forEach(button => {
+      button.addEventListener('click', function () {
+        if (this.textContent === 'Copy') alert('Copy functionality here');
+        else if (this.textContent === 'CSV') alert('CSV export here');
+        else if (this.textContent === 'Excel') alert('Excel export here');
+        else if (this.textContent === 'PDF') alert('PDF export here');
+        else if (this.textContent === 'Print') window.print();
+      });
+    });
+
+    // Edit modal handling
+    let currentEditCell = null;
+    document.querySelectorAll('.edit-icon').forEach(icon => {
+      icon.addEventListener('click', function () {
+        currentEditCell = this.closest('td');
+        const currentValue = currentEditCell.textContent.replace(/(\s*\S*\s*Edit)/, '').trim();
+        document.getElementById('remarkInput').value = currentValue;
+        const modal = new bootstrap.Modal(document.getElementById('editModal'));
+        modal.show();
+      });
+    });
+
+    document.getElementById('submitRemark').addEventListener('click', function () {
+      if (currentEditCell) {
+        const newRemark = document.getElementById('remarkInput').value;
+        if (currentEditCell.classList.contains('text-red')) {
+          currentEditCell.innerHTML = `${newRemark} <i class="fas fa-edit edit-icon ms-2"></i>`;
+        } else {
+          currentEditCell.innerHTML = newRemark;
+        }
+        const modal = bootstrap.Modal.getInstance(document.getElementById('editModal'));
+        modal.hide();
+      }
+    });
+
+    // Tab navigation
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+        this.classList.add('active');
+        if (window.innerWidth < 992) {
+          const collapse = document.querySelector('.navbar-collapse');
+          const bsCollapse = new bootstrap.Collapse(collapse, { toggle: false });
+          bsCollapse.hide();
+        }
+      });
+    });
+  </script>
 </body>
 
 </html>
