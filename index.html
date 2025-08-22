@@ -21,64 +21,65 @@
       <!-- Logo -->
       <a class="navbar-brand" href="#">
         <a class="navbar-brand" href="#">
-        <img src="images/logo.png" alt="Logo" style="height:40px;">
-      </a>
-      <!-- Hamburger Toggler -->
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
-        aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <!-- Collapsible Content -->
-      <div class="collapse navbar-collapse" id="navbarContent">
-        <!-- Tabs -->
-        <ul class="navbar-nav m-auto mb-2 mb-lg-0 nav-tabs border-0" id="myTab" role="tablist">
-          <li class="nav-item" role="presentation">
-            <button class="nav-link active" id="admin-tab" data-bs-toggle="tab" data-bs-target="#admin" type="button"
-              role="tab">Admin</button>
-          </li>
-          <li class="nav-item" role="presentation">
-            <button class="nav-link" id="dashboard-tab" data-bs-toggle="tab" data-bs-target="#dashboard" type="button"
-              role="tab">Dashboard</button>
-          </li>
-          <li class="nav-item" role="presentation">
-            <button class="nav-link" id="summary-tab" data-bs-toggle="tab" data-bs-target="#summary" type="button"
-              role="tab">Summary</button>
-          </li>
-          <li class="nav-item" role="presentation">
-            <button class="nav-link" id="po-tab" data-bs-toggle="tab" data-bs-target="#po" type="button" role="tab">
-              PO_PI Tracker</button>
-          </li>
-          <li class="nav-item" role="presentation">
-            <button class="nav-link " id="quotation-tab" data-bs-toggle="tab" data-bs-target="#quotation"
-              type="button" role="tab">Quotation Tracker</button>
-          </li>
-        </ul>
-        <!-- Settings Dropdown -->
-        <div class="dropdown">
-          <button class="btn settings-btn dropdown-toggle d-flex align-items-center gap-2" type="button"
-            id="settingsDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-            <i class="fas fa-cog"></i> <span>Settings</span>
-          </button>
-          <ul class="dropdown-menu dropdown-menu-end settings-menu" aria-labelledby="settingsDropdown">
-            <li>
-              <a class="dropdown-item text-danger" href="#">
-                <i class="fas fa-sign-out-alt me-2"></i> Logout
-              </a>
+          <img src="images/logo.png" alt="Logo" style="height:40px;">
+        </a>
+        <!-- Hamburger Toggler -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
+          aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <!-- Collapsible Content -->
+        <div class="collapse navbar-collapse" id="navbarContent">
+          <!-- Tabs -->
+          <ul class="navbar-nav m-auto mb-2 mb-lg-0 nav-tabs border-0" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+              <button class="nav-link active" id="admin-tab" data-bs-toggle="tab" data-bs-target="#admin" type="button"
+                role="tab">Admin</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="dashboard-tab" data-bs-toggle="tab" data-bs-target="#dashboard" type="button"
+                role="tab">Dashboard</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="summary-tab" data-bs-toggle="tab" data-bs-target="#summary" type="button"
+                role="tab">Summary</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="po-tab" data-bs-toggle="tab" data-bs-target="#po" type="button" role="tab">
+                PO_PI Tracker</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link " id="quotation-tab" data-bs-toggle="tab" data-bs-target="#quotation"
+                type="button" role="tab">Quotation Tracker</button>
             </li>
           </ul>
+          <!-- Settings Dropdown -->
+          <div class="dropdown">
+            <button class="btn settings-btn dropdown-toggle d-flex align-items-center gap-2" type="button"
+              id="settingsDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="fas fa-cog"></i> <span>Settings</span>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end settings-menu" aria-labelledby="settingsDropdown">
+              <li>
+                <a class="dropdown-item text-danger" href="#">
+                  <i class="fas fa-sign-out-alt me-2"></i> Logout
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
-      </div>
     </div>
 
     <style>
       /* tab css */
-      .navbar{
-          box-shadow: 0 4px 6px -2px rgba(0, 0, 0, 0.2);
+      .navbar {
+        box-shadow: 0 4px 6px -2px rgba(0, 0, 0, 0.2);
 
       }
+
       .navbar-nav .nav-link {
         margin: 0 10px;
-        
+
       }
 
       .settings-btn {
@@ -1451,9 +1452,623 @@
     </div>
 
     <!-- All PO_PI Tracker Tab -->
-    <div class="tab-pane fade" id="po" role="tabpanel" aria-labelledby="po-tab">
-      <h1>popi</h1>
+<div class="tab-pane fade" id="po" role="tabpanel" aria-labelledby="po-tab">
+  <div class="container-fluid p-3">
+    <div class="d-flex flex-wrap align-items-center justify-content-between">
+      <h6 class="mb-0 fw-bold text-primary">PO_PI Tracker</h6>
+      <ul class="nav qt-property-tabs mx-auto" id="popiPropertyTabs" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link active" id="popiProperty1-tab" data-bs-toggle="tab" href="#popiProperty1" role="tab">Property 1</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="popiProperty2-tab" data-bs-toggle="tab" href="#popiProperty2" role="tab">Property 2</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="popiProperty3-tab" data-bs-toggle="tab" href="#popiProperty3" role="tab">Property 3</a>
+        </li>
+      </ul>
+      <div class="qt-search-box d-flex">
+        <input type="text" class="form-control form-control-sm" placeholder="Search..." id="popiGlobalSearch">
+        <button type="button" class="ms-2" id="popiSearchButton">Search</button>
+      </div>
     </div>
+    <div class="btn-group qt-custom-btn-group py-3" role="group">
+      <button type="button" class="btn" id="popiCopyButton">Copy</button>
+      <button type="button" class="btn" id="popiCsvButton">CSV</button>
+      <button type="button" class="btn" id="popiExcelButton">Excel</button>
+      <button type="button" class="btn" id="popiPdfButton">PDF</button>
+      <button type="button" class="btn" id="popiPrintButton">Print</button>
+      <div class="qt-custom-select-wrapper">
+        <select id="popiRowSelector">
+          <option value="10">Show 10 Rows</option>
+          <option value="25">Show 25 Rows</option>
+          <option value="50">Show 50 Rows</option>
+        </select>
+        <i class="fa-solid fa-caret-down"></i>
+      </div>
+    </div>
+    <div class="tab-content py-3">
+      <div class="tab-pane fade show active" id="popiProperty1" role="tabpanel">
+        <div class="table-responsive">
+          <table id="popiTable1" class="table table-bordered table-striped nowrap qt-table" style="width:100%">
+            <thead>
+              <tr>
+                <th>Client Name <span class="sort-icons"><i class="fas fa-caret-up"></i><i class="fas fa-caret-down"></i></span></th>
+                <th>Categories <span class="sort-icons"><i class="fas fa-caret-up"></i><i class="fas fa-caret-down"></i></span></th>
+                <th>S No. <span class="sort-icons"><i class="fas fa-caret-up"></i><i class="fas fa-caret-down"></i></span></th>
+                <th>Description <span class="sort-icons"><i class="fas fa-caret-up"></i><i class="fas fa-caret-down"></i></span></th>
+                <th>CENPRO Quote <span class="sort-icons"><i class="fas fa-caret-up"></i><i class="fas fa-caret-down"></i></span></th>
+                <th>Resort PO <span class="sort-icons"><i class="fas fa-caret-up"></i><i class="fas fa-caret-down"></i></span></th>
+                <th>Cenpro Pro Inv <span class="sort-icons"><i class="fas fa-caret-up"></i><i class="fas fa-caret-down"></i></span></th>
+                <th>PI Date <span class="sort-icons"><i class="fas fa-caret-up"></i><i class="fas fa-caret-down"></i></span></th>
+                <th>MVR Amount <span class="sort-icons"><i class="fas fa-caret-up"></i><i class="fas fa-caret-down"></i></span></th>
+                <th>USD Amount <span class="sort-icons"><i class="fas fa-caret-up"></i><i class="fas fa-caret-down"></i></span></th>
+                <th>Minimum Payment <span class="sort-icons"><i class="fas fa-caret-up"></i><i class="fas fa-caret-down"></i></span></th>
+                <th>Min Amount Required <span class="sort-icons"><i class="fas fa-caret-up"></i><i class="fas fa-caret-down"></i></span></th>
+                <th>Amount Received <span class="sort-icons"><i class="fas fa-caret-up"></i><i class="fas fa-caret-down"></i></span></th>
+                <th>Pay Date <span class="sort-icons"><i class="fas fa-caret-up"></i><i class="fas fa-caret-down"></i></span></th>
+                <th>Paid% <span class="sort-icons"><i class="fas fa-caret-up"></i><i class="fas fa-caret-down"></i></span></th>
+                <th>Total Amount Due <span class="sort-icons"><i class="fas fa-caret-up"></i><i class="fas fa-caret-down"></i></span></th>
+                <th>Minimum Amount Due <span class="sort-icons"><i class="fas fa-caret-up"></i><i class="fas fa-caret-down"></i></span></th>
+                <th>Shipping Mode <span class="sort-icons"><i class="fas fa-caret-up"></i><i class="fas fa-caret-down"></i></span></th>
+                <th>ETA <span class="sort-icons"><i class="fas fa-caret-up"></i><i class="fas fa-caret-down"></i></span></th>
+                <th>DN# <span class="sort-icons"><i class="fas fa-caret-up"></i><i class="fas fa-caret-down"></i></span></th>
+                <th>DN Date <span class="sort-icons"><i class="fas fa-caret-up"></i><i class="fas fa-caret-down"></i></span></th>
+                <th>TI# <span class="sort-icons"><i class="fas fa-caret-up"></i><i class="fas fa-caret-down"></i></span></th>
+                <th>TI Date <span class="sort-icons"><i class="fas fa-caret-up"></i><i class="fas fa-caret-down"></i></span></th>
+                <th>TI Amount <span class="sort-icons"><i class="fas fa-caret-up"></i><i class="fas fa-caret-down"></i></span></th>
+                <th>Cenpro Remark <span class="sort-icons"><i class="fas fa-caret-up"></i><i class="fas fa-caret-down"></i></span></th>
+                <th>Resort Remark <span class="sort-icons"><i class="fas fa-caret-up"></i><i class="fas fa-caret-down"></i></span></th>
+              </tr>
+              <tr>
+                <th><input type="text" placeholder="Client Name" class="qt-filter-input"></th>
+                <th><input type="text" placeholder="Categories" class="qt-filter-input"></th>
+                <th><input type="text" placeholder="S No." class="qt-filter-input"></th>
+                <th><input type="text" placeholder="Description" class="qt-filter-input"></th>
+                <th><input type="text" placeholder="CENPRO Quote" class="qt-filter-input"></th>
+                <th><input type="text" placeholder="Resort PO" class="qt-filter-input"></th>
+                <th><input type="text" placeholder="Cenpro Pro Inv" class="qt-filter-input"></th>
+                <th><input type="text" placeholder="PI Date" class="qt-filter-input"></th>
+                <th><input type="text" placeholder="MVR Amount" class="qt-filter-input"></th>
+                <th><input type="text" placeholder="USD Amount" class="qt-filter-input"></th>
+                <th><input type="text" placeholder="Minimum Payment" class="qt-filter-input"></th>
+                <th><input type="text" placeholder="Min Amount Required" class="qt-filter-input"></th>
+                <th><input type="text" placeholder="Amount Received" class="qt-filter-input"></th>
+                <th><input type="text" placeholder="Pay Date" class="qt-filter-input"></th>
+                <th><input type="text" placeholder="Paid%" class="qt-filter-input"></th>
+                <th><input type="text" placeholder="Total Amount Due" class="qt-filter-input"></th>
+                <th><input type="text" placeholder="Minimum Amount Due" class="qt-filter-input"></th>
+                <th><input type="text" placeholder="Shipping Mode" class="qt-filter-input"></th>
+                <th><input type="text" placeholder="ETA" class="qt-filter-input"></th>
+                <th><input type="text" placeholder="DN#" class="qt-filter-input"></th>
+                <th><input type="text" placeholder="DN Date" class="qt-filter-input"></th>
+                <th><input type="text" placeholder="TI#" class="qt-filter-input"></th>
+                <th><input type="text" placeholder="TI Date" class="qt-filter-input"></th>
+                <th><input type="text" placeholder="TI Amount" class="qt-filter-input"></th>
+                <th><input type="text" placeholder="Cenpro Remark" class="qt-filter-input"></th>
+                <th><input type="text" placeholder="Resort Remark" class="qt-filter-input"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Client A</td>
+                <td>Category 1</td>
+                <td>001</td>
+                <td>Product Description</td>
+                <td>10000</td>
+                <td>PO-2001</td>
+                <td>INV-3001</td>
+                <td>01-Apr-25</td>
+                <td>50000</td>
+                <td>5000</td>
+                <td>2500</td>
+                <td>3000</td>
+                <td>2000</td>
+                <td>02-Apr-25</td>
+                <td>50%</td>
+                <td>3000</td>
+                <td>1000</td>
+                <td>Sea</td>
+                <td>15-Apr-25</td>
+                <td>DN-4001</td>
+                <td>03-Apr-25</td>
+                <td>TI-5001</td>
+                <td>04-Apr-25</td>
+                <td>4500</td>
+                <td>Remark 1</td>
+                <td>Resort Note 1</td>
+              </tr>
+              <tr>
+                <td>Client B</td>
+                <td>Category 2</td>
+                <td>002</td>
+                <td>Another Description</td>
+                <td>15000</td>
+                <td>PO-2002</td>
+                <td>INV-3002</td>
+                <td>02-Apr-25</td>
+                <td>75000</td>
+                <td>7500</td>
+                <td>4000</td>
+                <td>5000</td>
+                <td>3000</td>
+                <td>03-Apr-25</td>
+                <td>40%</td>
+                <td>4500</td>
+                <td>2000</td>
+                <td>Air</td>
+                <td>20-Apr-25</td>
+                <td>DN-4002</td>
+                <td>04-Apr-25</td>
+                <td>TI-5002</td>
+                <td>05-Apr-25</td>
+                <td>6000</td>
+                <td>Remark 2</td>
+                <td>Resort Note 2</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="tab-pane fade" id="popiProperty2" role="tabpanel">
+        <div class="table-responsive">
+          <table id="popiTable2" class="table table-bordered table-striped nowrap qt-table" style="width:100%">
+            <thead>
+              <tr>
+                <th>Client Name <span class="sort-icons"><i class="fas fa-caret-up"></i><i class="fas fa-caret-down"></i></span></th>
+                <th>Categories <span class="sort-icons"><i class="fas fa-caret-up"></i><i class="fas fa-caret-down"></i></span></th>
+                <th>S No. <span class="sort-icons"><i class="fas fa-caret-up"></i><i class="fas fa-caret-down"></i></span></th>
+                <th>Description <span class="sort-icons"><i class="fas fa-caret-up"></i><i class="fas fa-caret-down"></i></span></th>
+                <th>CENPRO Quote <span class="sort-icons"><i class="fas fa-caret-up"></i><i class="fas fa-caret-down"></i></span></th>
+                <th>Resort PO <span class="sort-icons"><i class="fas fa-caret-up"></i><i class="fas fa-caret-down"></i></span></th>
+                <th>Cenpro Pro Inv <span class="sort-icons"><i class="fas fa-caret-up"></i><i class="fas fa-caret-down"></i></span></th>
+                <th>PI Date <span class="sort-icons"><i class="fas fa-caret-up"></i><i class="fas fa-caret-down"></i></span></th>
+                <th>MVR Amount <span class="sort-icons"><i class="fas fa-caret-up"></i><i class="fas fa-caret-down"></i></span></th>
+                <th>USD Amount <span class="sort-icons"><i class="fas fa-caret-up"></i><i class="fas fa-caret-down"></i></span></th>
+                <th>Minimum Payment <span class="sort-icons"><i class="fas fa-caret-up"></i><i class="fas fa-caret-down"></i></span></th>
+                <th>Min Amount Required <span class="sort-icons"><i class="fas fa-caret-up"></i><i class="fas fa-caret-down"></i></span></th>
+                <th>Amount Received <span class="sort-icons"><i class="fas fa-caret-up"></i><i class="fas fa-caret-down"></i></span></th>
+                <th>Pay Date <span class="sort-icons"><i class="fas fa-caret-up"></i><i class="fas fa-caret-down"></i></span></th>
+                <th>Paid% <span class="sort-icons"><i class="fas fa-caret-up"></i><i class="fas fa-caret-down"></i></span></th>
+                <th>Total Amount Due <span class="sort-icons"><i class="fas fa-caret-up"></i><i class="fas fa-caret-down"></i></span></th>
+                <th>Minimum Amount Due <span class="sort-icons"><i class="fas fa-caret-up"></i><i class="fas fa-caret-down"></i></span></th>
+                <th>Shipping Mode <span class="sort-icons"><i class="fas fa-caret-up"></i><i class="fas fa-caret-down"></i></span></th>
+                <th>ETA <span class="sort-icons"><i class="fas fa-caret-up"></i><i class="fas fa-caret-down"></i></span></th>
+                <th>DN# <span class="sort-icons"><i class="fas fa-caret-up"></i><i class="fas fa-caret-down"></i></span></th>
+                <th>DN Date <span class="sort-icons"><i class="fas fa-caret-up"></i><i class="fas fa-caret-down"></i></span></th>
+                <th>TI# <span class="sort-icons"><i class="fas fa-caret-up"></i><i class="fas fa-caret-down"></i></span></th>
+                <th>TI Date <span class="sort-icons"><i class="fas fa-caret-up"></i><i class="fas fa-caret-down"></i></span></th>
+                <th>TI Amount <span class="sort-icons"><i class="fas fa-caret-up"></i><i class="fas fa-caret-down"></i></span></th>
+                <th>Cenpro Remark <span class="sort-icons"><i class="fas fa-caret-up"></i><i class="fas fa-caret-down"></i></span></th>
+                <th>Resort Remark <span class="sort-icons"><i class="fas fa-caret-up"></i><i class="fas fa-caret-down"></i></span></th>
+              </tr>
+              <tr>
+                <th><input type="text" placeholder="Client Name" class="qt-filter-input"></th>
+                <th><input type="text" placeholder="Categories" class="qt-filter-input"></th>
+                <th><input type="text" placeholder="S No." class="qt-filter-input"></th>
+                <th><input type="text" placeholder="Description" class="qt-filter-input"></th>
+                <th><input type="text" placeholder="CENPRO Quote" class="qt-filter-input"></th>
+                <th><input type="text" placeholder="Resort PO" class="qt-filter-input"></th>
+                <th><input type="text" placeholder="Cenpro Pro Inv" class="qt-filter-input"></th>
+                <th><input type="text" placeholder="PI Date" class="qt-filter-input"></th>
+                <th><input type="text" placeholder="MVR Amount" class="qt-filter-input"></th>
+                <th><input type="text" placeholder="USD Amount" class="qt-filter-input"></th>
+                <th><input type="text" placeholder="Minimum Payment" class="qt-filter-input"></th>
+                <th><input type="text" placeholder="Min Amount Required" class="qt-filter-input"></th>
+                <th><input type="text" placeholder="Amount Received" class="qt-filter-input"></th>
+                <th><input type="text" placeholder="Pay Date" class="qt-filter-input"></th>
+                <th><input type="text" placeholder="Paid%" class="qt-filter-input"></th>
+                <th><input type="text" placeholder="Total Amount Due" class="qt-filter-input"></th>
+                <th><input type="text" placeholder="Minimum Amount Due" class="qt-filter-input"></th>
+                <th><input type="text" placeholder="Shipping Mode" class="qt-filter-input"></th>
+                <th><input type="text" placeholder="ETA" class="qt-filter-input"></th>
+                <th><input type="text" placeholder="DN#" class="qt-filter-input"></th>
+                <th><input type="text" placeholder="DN Date" class="qt-filter-input"></th>
+                <th><input type="text" placeholder="TI#" class="qt-filter-input"></th>
+                <th><input type="text" placeholder="TI Date" class="qt-filter-input"></th>
+                <th><input type="text" placeholder="TI Amount" class="qt-filter-input"></th>
+                <th><input type="text" placeholder="Cenpro Remark" class="qt-filter-input"></th>
+                <th><input type="text" placeholder="Resort Remark" class="qt-filter-input"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Client C</td>
+                <td>Category 3</td>
+                <td>003</td>
+                <td>Item Description</td>
+                <td>12000</td>
+                <td>PO-2003</td>
+                <td>INV-3003</td>
+                <td>03-Apr-25</td>
+                <td>60000</td>
+                <td>6000</td>
+                <td>3000</td>
+                <td>3500</td>
+                <td>2500</td>
+                <td>04-Apr-25</td>
+                <td>45%</td>
+                <td>3500</td>
+                <td>1500</td>
+                <td>Land</td>
+                <td>18-Apr-25</td>
+                <td>DN-4003</td>
+                <td>05-Apr-25</td>
+                <td>TI-5003</td>
+                <td>06-Apr-25</td>
+                <td>5000</td>
+                <td>Remark 3</td>
+                <td>Resort Note 3</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="tab-pane fade" id="popiProperty3" role="tabpanel">
+        <div class="table-responsive">
+          <table id="popiTable3" class="table table-bordered table-striped nowrap qt-table" style="width:100%">
+            <thead>
+              <tr>
+                <th>Client Name <span class="sort-icons"><i class="fas fa-caret-up"></i><i class="fas fa-caret-down"></i></span></th>
+                <th>Categories <span class="sort-icons"><i class="fas fa-caret-up"></i><i class="fas fa-caret-down"></i></span></th>
+                <th>S No. <span class="sort-icons"><i class="fas fa-caret-up"></i><i class="fas fa-caret-down"></i></span></th>
+                <th>Description <span class="sort-icons"><i class="fas fa-caret-up"></i><i class="fas fa-caret-down"></i></span></th>
+                <th>CENPRO Quote <span class="sort-icons"><i class="fas fa-caret-up"></i><i class="fas fa-caret-down"></i></span></th>
+                <th>Resort PO <span class="sort-icons"><i class="fas fa-caret-up"></i><i class="fas fa-caret-down"></i></span></th>
+                <th>Cenpro Pro Inv <span class="sort-icons"><i class="fas fa-caret-up"></i><i class="fas fa-caret-down"></i></span></th>
+                <th>PI Date <span class="sort-icons"><i class="fas fa-caret-up"></i><i class="fas fa-caret-down"></i></span></th>
+                <th>MVR Amount <span class="sort-icons"><i class="fas fa-caret-up"></i><i class="fas fa-caret-down"></i></span></th>
+                <th>USD Amount <span class="sort-icons"><i class="fas fa-caret-up"></i><i class="fas fa-caret-down"></i></span></th>
+                <th>Minimum Payment <span class="sort-icons"><i class="fas fa-caret-up"></i><i class="fas fa-caret-down"></i></span></th>
+                <th>Min Amount Required <span class="sort-icons"><i class="fas fa-caret-up"></i><i class="fas fa-caret-down"></i></span></th>
+                <th>Amount Received <span class="sort-icons"><i class="fas fa-caret-up"></i><i class="fas fa-caret-down"></i></span></th>
+                <th>Pay Date <span class="sort-icons"><i class="fas fa-caret-up"></i><i class="fas fa-caret-down"></i></span></th>
+                <th>Paid% <span class="sort-icons"><i class="fas fa-caret-up"></i><i class="fas fa-caret-down"></i></span></th>
+                <th>Total Amount Due <span class="sort-icons"><i class="fas fa-caret-up"></i><i class="fas fa-caret-down"></i></span></th>
+                <th>Minimum Amount Due <span class="sort-icons"><i class="fas fa-caret-up"></i><i class="fas fa-caret-down"></i></span></th>
+                <th>Shipping Mode <span class="sort-icons"><i class="fas fa-caret-up"></i><i class="fas fa-caret-down"></i></span></th>
+                <th>ETA <span class="sort-icons"><i class="fas fa-caret-up"></i><i class="fas fa-caret-down"></i></span></th>
+                <th>DN# <span class="sort-icons"><i class="fas fa-caret-up"></i><i class="fas fa-caret-down"></i></span></th>
+                <th>DN Date <span class="sort-icons"><i class="fas fa-caret-up"></i><i class="fas fa-caret-down"></i></span></th>
+                <th>TI# <span class="sort-icons"><i class="fas fa-caret-up"></i><i class="fas fa-caret-down"></i></span></th>
+                <th>TI Date <span class="sort-icons"><i class="fas fa-caret-up"></i><i class="fas fa-caret-down"></i></span></th>
+                <th>TI Amount <span class="sort-icons"><i class="fas fa-caret-up"></i><i class="fas fa-caret-down"></i></span></th>
+                <th>Cenpro Remark <span class="sort-icons"><i class="fas fa-caret-up"></i><i class="fas fa-caret-down"></i></span></th>
+                <th>Resort Remark <span class="sort-icons"><i class="fas fa-caret-up"></i><i class="fas fa-caret-down"></i></span></th>
+              </tr>
+              <tr>
+                <th><input type="text" placeholder="Client Name" class="qt-filter-input"></th>
+                <th><input type="text" placeholder="Categories" class="qt-filter-input"></th>
+                <th><input type="text" placeholder="S No." class="qt-filter-input"></th>
+                <th><input type="text" placeholder="Description" class="qt-filter-input"></th>
+                <th><input type="text" placeholder="CENPRO Quote" class="qt-filter-input"></th>
+                <th><input type="text" placeholder="Resort PO" class="qt-filter-input"></th>
+                <th><input type="text" placeholder="Cenpro Pro Inv" class="qt-filter-input"></th>
+                <th><input type="text" placeholder="PI Date" class="qt-filter-input"></th>
+                <th><input type="text" placeholder="MVR Amount" class="qt-filter-input"></th>
+                <th><input type="text" placeholder="USD Amount" class="qt-filter-input"></th>
+                <th><input type="text" placeholder="Minimum Payment" class="qt-filter-input"></th>
+                <th><input type="text" placeholder="Min Amount Required" class="qt-filter-input"></th>
+                <th><input type="text" placeholder="Amount Received" class="qt-filter-input"></th>
+                <th><input type="text" placeholder="Pay Date" class="qt-filter-input"></th>
+                <th><input type="text" placeholder="Paid%" class="qt-filter-input"></th>
+                <th><input type="text" placeholder="Total Amount Due" class="qt-filter-input"></th>
+                <th><input type="text" placeholder="Minimum Amount Due" class="qt-filter-input"></th>
+                <th><input type="text" placeholder="Shipping Mode" class="qt-filter-input"></th>
+                <th><input type="text" placeholder="ETA" class="qt-filter-input"></th>
+                <th><input type="text" placeholder="DN#" class="qt-filter-input"></th>
+                <th><input type="text" placeholder="DN Date" class="qt-filter-input"></th>
+                <th><input type="text" placeholder="TI#" class="qt-filter-input"></th>
+                <th><input type="text" placeholder="TI Date" class="qt-filter-input"></th>
+                <th><input type="text" placeholder="TI Amount" class="qt-filter-input"></th>
+                <th><input type="text" placeholder="Cenpro Remark" class="qt-filter-input"></th>
+                <th><input type="text" placeholder="Resort Remark" class="qt-filter-input"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Client D</td>
+                <td>Category 4</td>
+                <td>004</td>
+                <td>Service Description</td>
+                <td>18000</td>
+                <td>PO-2004</td>
+                <td>INV-3004</td>
+                <td>04-Apr-25</td>
+                <td>80000</td>
+                <td>8000</td>
+                <td>4000</td>
+                <td>4500</td>
+                <td>3500</td>
+                <td>05-Apr-25</td>
+                <td>55%</td>
+                <td>4000</td>
+                <td>2000</td>
+                <td>Sea</td>
+                <td>22-Apr-25</td>
+                <td>DN-4004</td>
+                <td>06-Apr-25</td>
+                <td>TI-5004</td>
+                <td>07-Apr-25</td>
+                <td>7000</td>
+                <td>Remark 4</td>
+                <td>Resort Note 4</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="popiEditModal" tabindex="-1" aria-labelledby="popiEditModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content p-3 position-relative">
+          <button class="qt-close-btn" data-bs-dismiss="modal">&times;</button>
+          <h5 class="mb-2 fw-bold" id="popiEditModalLabel">Edit Cell</h5>
+          <p class="text-muted mb-3" id="popiCellHeader"></p>
+          <div class="modal-body p-0">
+            <div class="mb-4">
+              <input type="text" class="form-control" id="popiCellInput" placeholder="Enter value" />
+            </div>
+            <div class="d-flex justify-content-end gap-2">
+              <button class="btn qt-btn-cancel" data-bs-dismiss="modal">Cancel</button>
+              <button class="btn qt-btn-update" id="popiSubmitCell">Submit</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const popiTables = [
+        document.getElementById("popiTable1"),
+        document.getElementById("popiTable2"),
+        document.getElementById("popiTable3")
+      ];
+
+      function getPopiTableData(table) {
+        const headers = Array.from(table.querySelectorAll("thead tr:first-child th")).map(th => th.textContent.trim().replace(/[\u2191\u2193]/g, '').trim());
+        const rows = Array.from(table.querySelectorAll("tbody tr")).map(row =>
+          Array.from(row.cells).map(cell => cell.querySelector(".remark-text")?.textContent.trim() || cell.textContent.trim())
+        );
+        return [headers, ...rows];
+      }
+
+      function getActivePopiTable() {
+        const activeTab = document.querySelector("#po .tab-pane.show.active");
+        return activeTab ? activeTab.querySelector("table") : null;
+      }
+
+      const popiGlobalSearch = document.getElementById("popiGlobalSearch");
+      const popiSearchButton = document.getElementById("popiSearchButton");
+      function applyPopiGlobalSearch() {
+        const table = getActivePopiTable();
+        if (!table) return;
+        const searchTerm = popiGlobalSearch.value.trim().toLowerCase();
+        const tbody = table.tBodies[0];
+        Array.from(tbody.rows).forEach(row => {
+          const rowText = Array.from(row.cells).map(cell =>
+            cell.querySelector(".remark-text")?.textContent.trim().toLowerCase() ||
+            cell.textContent.trim().toLowerCase()
+          ).join(" ");
+          row.style.display = searchTerm ? rowText.includes(searchTerm) ? "" : "none" : "";
+        });
+      }
+      popiGlobalSearch.addEventListener("input", applyPopiGlobalSearch);
+      popiSearchButton.addEventListener("click", applyPopiGlobalSearch);
+
+      const popiRowSelector = document.getElementById("popiRowSelector");
+      function applyPopiRowLimit() {
+        const table = getActivePopiTable();
+        if (!table) return;
+        const limit = parseInt(popiRowSelector.value);
+        const tbody = table.tBodies[0];
+        Array.from(tbody.rows).forEach((row, index) => {
+          row.style.display = index < limit ? "" : "none";
+        });
+      }
+      popiRowSelector.addEventListener("change", applyPopiRowLimit);
+
+      document.getElementById("popiCopyButton").addEventListener("click", () => {
+        const table = getActivePopiTable();
+        if (!table) return;
+        const data = getPopiTableData(table);
+        const text = data.map(row => row.join("\t")).join("\n");
+        navigator.clipboard.writeText(text).then(() => alert("Table data copied to clipboard!"));
+      });
+
+      document.getElementById("popiCsvButton").addEventListener("click", () => {
+        const table = getActivePopiTable();
+        if (!table) return;
+        const data = getPopiTableData(table);
+        const csv = data.map(row => row.map(cell => `"${cell.replace(/"/g, '""')}"`).join(",")).join("\n");
+        const blob = new Blob([csv], { type: "text/csv" });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "popi_tracker.csv";
+        a.click();
+        URL.revokeObjectURL(url);
+      });
+
+      document.getElementById("popiExcelButton").addEventListener("click", () => {
+        const table = getActivePopiTable();
+        if (!table) return;
+        const data = getPopiTableData(table);
+        const ws = XLSX.utils.aoa_to_sheet(data);
+        const wb = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(wb, ws, "PO_PI Tracker");
+        XLSX.writeFile(wb, "popi_tracker.xlsx");
+      });
+
+      document.getElementById("popiPdfButton").addEventListener("click", () => {
+        const table = getActivePopiTable();
+        if (!table) return;
+        const tableContainer = table.closest(".table-responsive");
+        html2canvas(tableContainer, { scale: 2 }).then(canvas => {
+          const imgData = canvas.toDataURL("image/png");
+          const pdf = new window.jspdf.jsPDF({
+            orientation: "landscape",
+            unit: "px",
+            format: [canvas.width, canvas.height]
+          });
+          pdf.addImage(imgData, "PNG", 0, 0, canvas.width, canvas.height);
+          pdf.save("popi_tracker.pdf");
+        });
+      });
+
+      document.getElementById("popiPrintButton").addEventListener("click", () => {
+        const table = getActivePopiTable();
+        if (!table) return;
+        const printWindow = window.open("", "_blank");
+        printWindow.document.write(`
+          <html>
+            <head>
+              <title>Print PO_PI Tracker</title>
+              <style>
+                table { border-collapse: collapse; width: 100%; }
+                th, td { border: 1px solid #ddd; padding: 8px; text-align: center; }
+                th { background-color: #f2f2f2; }
+              </style>
+            </head>
+            <body>
+              ${table.outerHTML}
+            </body>
+          </html>
+        `);
+        printWindow.document.close();
+        printWindow.print();
+      });
+
+      popiTables.forEach(table => {
+        if (!table) return;
+
+        const header = table.tHead.rows[0];
+        const filterRowInputs = Array.from(table.querySelectorAll("thead tr:nth-child(2) input"));
+        const tbody = table.tBodies[0];
+
+        function refreshBlankCells() {
+          Array.from(tbody.rows).forEach(row => {
+            Array.from(row.cells).forEach((td, idx) => {
+              const text = td.textContent.trim();
+              const headerText = header.cells[idx].textContent.trim().replace(/[\u2191\u2193]/g, '').trim();
+              td.innerHTML = "";
+
+              const span = document.createElement("span");
+              span.className = "remark-text";
+
+              if (!text) {
+                span.textContent = headerText;
+                span.classList.add("text-missing");
+                td.appendChild(span);
+
+                const icon = document.createElement("i");
+                icon.className = "fas fa-edit edit-icon";
+                icon.title = "Edit";
+                icon.setAttribute("data-col-index", idx);
+                td.appendChild(icon);
+              } else {
+                span.textContent = text;
+                td.appendChild(span);
+              }
+            });
+          });
+        }
+
+        refreshBlankCells();
+
+        function applyFilters() {
+          Array.from(tbody.rows).forEach(row => {
+            let show = true;
+            filterRowInputs.forEach((input, i) => {
+              const val = input.value.trim().toLowerCase();
+              if (!val) return;
+              const cell = row.cells[i];
+              const txt = (cell.querySelector(".remark-text")?.textContent || cell.textContent).trim().toLowerCase();
+              if (!txt.includes(val)) show = false;
+            });
+            row.style.display = show ? "" : "none";
+          });
+          applyPopiRowLimit();
+        }
+        filterRowInputs.forEach(inp => inp.addEventListener("input", applyFilters));
+
+        let sortDirection = {};
+        header.querySelectorAll("th").forEach((th, index) => {
+          const icons = th.querySelector(".sort-icons");
+          if (!icons) return;
+          const [up, down] = icons.querySelectorAll("i");
+
+          up.addEventListener("click", () => sortTable(index, "asc", up, down));
+          down.addEventListener("click", () => sortTable(index, "desc", up, down));
+        });
+
+        function sortTable(colIndex, direction, up, down) {
+          const rows = Array.from(tbody.rows);
+          rows.sort((a, b) => {
+            const aText = (a.cells[colIndex].querySelector(".remark-text")?.textContent || a.cells[colIndex].textContent).trim().toLowerCase();
+            const bText = (b.cells[colIndex].querySelector(".remark-text")?.textContent || b.cells[colIndex].textContent).trim().toLowerCase();
+            if (aText < bText) return direction === "asc" ? -1 : 1;
+            if (aText > bText) return direction === "asc" ? 1 : -1;
+            return 0;
+          });
+          tbody.append(...rows);
+
+          header.querySelectorAll(".sort-icons i").forEach(i => i.classList.remove("sort-active"));
+          if (direction === "asc") up.classList.add("sort-active");
+          else down.classList.add("sort-active");
+          applyPopiRowLimit();
+        }
+
+        tbody.addEventListener("click", (e) => {
+          const icon = e.target.closest(".edit-icon");
+          if (!icon) return;
+          const td = icon.closest("td");
+          popiCurrentCell = td;
+          const colHeader = header.cells[icon.getAttribute("data-col-index")].textContent.trim().replace(/[\u2191\u2193]/g, '').trim();
+          popiCellHeader.textContent = colHeader;
+          popiCellInput.value = td.querySelector(".remark-text")?.textContent.replace(colHeader, "").trim() || "";
+          popiEditModal.show();
+        });
+      });
+
+      const popiModalEl = document.getElementById("popiEditModal");
+      const popiEditModal = new bootstrap.Modal(popiModalEl);
+      const popiCellInput = document.getElementById("popiCellInput");
+      const popiCellHeader = document.getElementById("popiCellHeader");
+      const popiSubmitBtn = document.getElementById("popiSubmitCell");
+      let popiCurrentCell = null;
+
+      popiSubmitBtn.addEventListener("click", () => {
+        if (!popiCurrentCell) return;
+        const val = popiCellInput.value.trim();
+        const span = popiCurrentCell.querySelector(".remark-text");
+        const header = popiCurrentCell.closest("table").tHead.rows[0];
+        if (val) {
+          span.textContent = val;
+          span.classList.remove("text-missing");
+          const icon = popiCurrentCell.querySelector(".edit-icon");
+          if (icon) icon.remove();
+        } else {
+          span.textContent = header.cells[popiCurrentCell.cellIndex].textContent.trim().replace(/[\u2191\u2193]/g, '').trim();
+          span.classList.add("text-missing");
+          if (!popiCurrentCell.querySelector(".edit-icon")) {
+            const icon = document.createElement("i");
+            icon.className = "fas fa-edit edit-icon";
+            icon.title = "Edit";
+            icon.setAttribute("data-col-index", popiCurrentCell.cellIndex);
+            popiCurrentCell.appendChild(icon);
+          }
+        }
+        popiEditModal.hide();
+        popiCurrentCell = null;
+      });
+
+      applyPopiRowLimit();
+    });
+  </script>
+</div>
 
     <div class="tab-pane fade" id="quotation" role="tabpanel" aria-labelledby="quotation-tab">
       <style>
@@ -1464,14 +2079,17 @@
           border: 1px solid #2f4e9b;
           margin: 0 3px;
         }
+
         .qt-property-tabs .nav-link.active {
           background-color: #2f4e9b !important;
           color: #fff !important;
         }
+
         .qt-search-box input {
           border-radius: 20px;
           border: 1px solid #ccc;
         }
+
         .qt-search-box button {
           border-radius: 20px;
           background-color: #2f4e9b;
@@ -1479,6 +2097,7 @@
           border: none;
           padding: 5px 15px;
         }
+
         .qt-custom-btn-group .btn,
         .qt-custom-btn-group .qt-custom-select-wrapper {
           border: 1px solid #2f4e9b;
@@ -1490,13 +2109,16 @@
           display: flex;
           align-items: center;
         }
+
         .qt-custom-btn-group .btn:hover,
         .qt-custom-btn-group .qt-custom-select-wrapper:hover {
           background-color: #e9ecef;
         }
+
         .qt-custom-select-wrapper {
           position: relative;
         }
+
         .qt-custom-select-wrapper select {
           border: none;
           background: transparent;
@@ -1506,6 +2128,7 @@
           appearance: none;
           outline: none;
         }
+
         .qt-custom-select-wrapper i {
           position: absolute;
           right: 10px;
@@ -1515,6 +2138,7 @@
           font-size: 12px;
           color: #000;
         }
+
         .qt-table th,
         .qt-table td {
           min-width: 200px;
@@ -1522,27 +2146,33 @@
           white-space: nowrap;
           vertical-align: middle;
         }
+
         .qt-filter-input {
           width: 100%;
           font-size: 12px;
           padding: 6px 10px;
           box-sizing: border-box;
         }
+
         .edit-icon {
           cursor: pointer;
           margin-left: 0.5rem;
           color: #2f4e9b;
         }
+
         .edit-icon:hover {
           color: #0d6efd !important;
         }
+
         .qt-btn-cancel {
           background: #e9ecef;
         }
+
         .qt-btn-update {
           background: #0d6efd;
           color: #fff;
         }
+
         .qt-close-btn {
           background: none;
           border: none;
@@ -1552,15 +2182,18 @@
           top: 8px;
           cursor: pointer;
         }
+
         .text-missing {
           color: red;
           font-style: italic;
         }
+
         .qt-table th {
           position: relative;
           text-align: left;
           padding-right: 25px;
         }
+
         .sort-icons {
           position: absolute;
           right: 6px;
@@ -1572,9 +2205,11 @@
           font-size: 12px;
           cursor: pointer;
         }
+
         .sort-icons i {
           line-height: 10px;
         }
+
         .sort-active {
           color: #0d6efd;
           font-weight: bold;
@@ -1587,7 +2222,8 @@
           <!-- Center: Property Tabs -->
           <ul class="nav qt-property-tabs mx-auto" id="propertyTabs" role="tablist">
             <li class="nav-item">
-              <a class="nav-link active" id="property1-tab" data-bs-toggle="tab" href="#property1" role="tab">Property 1</a>
+              <a class="nav-link active" id="property1-tab" data-bs-toggle="tab" href="#property1" role="tab">Property
+                1</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" id="property2-tab" data-bs-toggle="tab" href="#property2" role="tab">Property 2</a>
@@ -1626,22 +2262,38 @@
               <table id="quotationTable1" class="table table-bordered table-striped nowrap qt-table" style="width:100%">
                 <thead>
                   <tr>
-                    <th>Enquiry Number <span class="sort-icons"><i class="fas fa-caret-up"></i><i class="fas fa-caret-down"></i></span></th>
-                    <th>Enq. Received Date <span class="sort-icons"><i class="fas fa-caret-up"></i><i class="fas fa-caret-down"></i></span></th>
-                    <th>Sender’s Email ID <span class="sort-icons"><i class="fas fa-caret-up"></i><i class="fas fa-caret-down"></i></span></th>
-                    <th>Client Name <span class="sort-icons"><i class="fas fa-caret-up"></i><i class="fas fa-caret-down"></i></span></th>
-                    <th>Email Subject Line <span class="sort-icons"><i class="fas fa-caret-up"></i><i class="fas fa-caret-down"></i></span></th>
-                    <th>Product Category <span class="sort-icons"><i class="fas fa-caret-up"></i><i class="fas fa-caret-down"></i></span></th>
-                    <th>Assigned To <span class="sort-icons"><i class="fas fa-caret-up"></i><i class="fas fa-caret-down"></i></span></th>
-                    <th>SLA <span class="sort-icons"><i class="fas fa-caret-up"></i><i class="fas fa-caret-down"></i></span></th>
-                    <th>Enq. Product Status <span class="sort-icons"><i class="fas fa-caret-up"></i><i class="fas fa-caret-down"></i></span></th>
-                    <th>Quotation Sent Status <span class="sort-icons"><i class="fas fa-caret-up"></i><i class="fas fa-caret-down"></i></span></th>
-                    <th>Zoho Quotation No. <span class="sort-icons"><i class="fas fa-caret-up"></i><i class="fas fa-caret-down"></i></span></th>
-                    <th>Multiple Quotation <span class="sort-icons"><i class="fas fa-caret-up"></i><i class="fas fa-caret-down"></i></span></th>
-                    <th>Quotation Sent Date <span class="sort-icons"><i class="fas fa-caret-up"></i><i class="fas fa-caret-down"></i></span></th>
-                    <th>SLA Status <span class="sort-icons"><i class="fas fa-caret-up"></i><i class="fas fa-caret-down"></i></span></th>
-                    <th>CENPRO Remark <span class="sort-icons"><i class="fas fa-caret-up"></i><i class="fas fa-caret-down"></i></span></th>
-                    <th>Resort Remark <span class="sort-icons"><i class="fas fa-caret-up"></i><i class="fas fa-caret-down"></i></span></th>
+                    <th>Enquiry Number <span class="sort-icons"><i class="fas fa-caret-up"></i><i
+                          class="fas fa-caret-down"></i></span></th>
+                    <th>Enq. Received Date <span class="sort-icons"><i class="fas fa-caret-up"></i><i
+                          class="fas fa-caret-down"></i></span></th>
+                    <th>Sender’s Email ID <span class="sort-icons"><i class="fas fa-caret-up"></i><i
+                          class="fas fa-caret-down"></i></span></th>
+                    <th>Client Name <span class="sort-icons"><i class="fas fa-caret-up"></i><i
+                          class="fas fa-caret-down"></i></span></th>
+                    <th>Email Subject Line <span class="sort-icons"><i class="fas fa-caret-up"></i><i
+                          class="fas fa-caret-down"></i></span></th>
+                    <th>Product Category <span class="sort-icons"><i class="fas fa-caret-up"></i><i
+                          class="fas fa-caret-down"></i></span></th>
+                    <th>Assigned To <span class="sort-icons"><i class="fas fa-caret-up"></i><i
+                          class="fas fa-caret-down"></i></span></th>
+                    <th>SLA <span class="sort-icons"><i class="fas fa-caret-up"></i><i
+                          class="fas fa-caret-down"></i></span></th>
+                    <th>Enq. Product Status <span class="sort-icons"><i class="fas fa-caret-up"></i><i
+                          class="fas fa-caret-down"></i></span></th>
+                    <th>Quotation Sent Status <span class="sort-icons"><i class="fas fa-caret-up"></i><i
+                          class="fas fa-caret-down"></i></span></th>
+                    <th>Zoho Quotation No. <span class="sort-icons"><i class="fas fa-caret-up"></i><i
+                          class="fas fa-caret-down"></i></span></th>
+                    <th>Multiple Quotation <span class="sort-icons"><i class="fas fa-caret-up"></i><i
+                          class="fas fa-caret-down"></i></span></th>
+                    <th>Quotation Sent Date <span class="sort-icons"><i class="fas fa-caret-up"></i><i
+                          class="fas fa-caret-down"></i></span></th>
+                    <th>SLA Status <span class="sort-icons"><i class="fas fa-caret-up"></i><i
+                          class="fas fa-caret-down"></i></span></th>
+                    <th>CENPRO Remark <span class="sort-icons"><i class="fas fa-caret-up"></i><i
+                          class="fas fa-caret-down"></i></span></th>
+                    <th>Resort Remark <span class="sort-icons"><i class="fas fa-caret-up"></i><i
+                          class="fas fa-caret-down"></i></span></th>
                   </tr>
                   <tr>
                     <th><input type="text" placeholder="Enq. No" class="qt-filter-input"></th>
@@ -1709,22 +2361,38 @@
               <table id="quotationTable2" class="table table-bordered table-striped nowrap qt-table" style="width:100%">
                 <thead>
                   <tr>
-                    <th>Enquiry Number <span class="sort-icons"><i class="fas fa-caret-up"></i><i class="fas fa-caret-down"></i></span></th>
-                    <th>Enq. Received Date <span class="sort-icons"><i class="fas fa-caret-up"></i><i class="fas fa-caret-down"></i></span></th>
-                    <th>Sender’s Email ID <span class="sort-icons"><i class="fas fa-caret-up"></i><i class="fas fa-caret-down"></i></span></th>
-                    <th>Client Name <span class="sort-icons"><i class="fas fa-caret-up"></i><i class="fas fa-caret-down"></i></span></th>
-                    <th>Email Subject Line <span class="sort-icons"><i class="fas fa-caret-up"></i><i class="fas fa-caret-down"></i></span></th>
-                    <th>Product Category <span class="sort-icons"><i class="fas fa-caret-up"></i><i class="fas fa-caret-down"></i></span></th>
-                    <th>Assigned To <span class="sort-icons"><i class="fas fa-caret-up"></i><i class="fas fa-caret-down"></i></span></th>
-                    <th>SLA <span class="sort-icons"><i class="fas fa-caret-up"></i><i class="fas fa-caret-down"></i></span></th>
-                    <th>Enq. Product Status <span class="sort-icons"><i class="fas fa-caret-up"></i><i class="fas fa-caret-down"></i></span></th>
-                    <th>Quotation Sent Status <span class="sort-icons"><i class="fas fa-caret-up"></i><i class="fas fa-caret-down"></i></span></th>
-                    <th>Zoho Quotation No. <span class="sort-icons"><i class="fas fa-caret-up"></i><i class="fas fa-caret-down"></i></span></th>
-                    <th>Multiple Quotation <span class="sort-icons"><i class="fas fa-caret-up"></i><i class="fas fa-caret-down"></i></span></th>
-                    <th>Quotation Sent Date <span class="sort-icons"><i class="fas fa-caret-up"></i><i class="fas fa-caret-down"></i></span></th>
-                    <th>SLA Status <span class="sort-icons"><i class="fas fa-caret-up"></i><i class="fas fa-caret-down"></i></span></th>
-                    <th>CENPRO Remark <span class="sort-icons"><i class="fas fa-caret-up"></i><i class="fas fa-caret-down"></i></span></th>
-                    <th>Resort Remark <span class="sort-icons"><i class="fas fa-caret-up"></i><i class="fas fa-caret-down"></i></span></th>
+                    <th>Enquiry Number <span class="sort-icons"><i class="fas fa-caret-up"></i><i
+                          class="fas fa-caret-down"></i></span></th>
+                    <th>Enq. Received Date <span class="sort-icons"><i class="fas fa-caret-up"></i><i
+                          class="fas fa-caret-down"></i></span></th>
+                    <th>Sender’s Email ID <span class="sort-icons"><i class="fas fa-caret-up"></i><i
+                          class="fas fa-caret-down"></i></span></th>
+                    <th>Client Name <span class="sort-icons"><i class="fas fa-caret-up"></i><i
+                          class="fas fa-caret-down"></i></span></th>
+                    <th>Email Subject Line <span class="sort-icons"><i class="fas fa-caret-up"></i><i
+                          class="fas fa-caret-down"></i></span></th>
+                    <th>Product Category <span class="sort-icons"><i class="fas fa-caret-up"></i><i
+                          class="fas fa-caret-down"></i></span></th>
+                    <th>Assigned To <span class="sort-icons"><i class="fas fa-caret-up"></i><i
+                          class="fas fa-caret-down"></i></span></th>
+                    <th>SLA <span class="sort-icons"><i class="fas fa-caret-up"></i><i
+                          class="fas fa-caret-down"></i></span></th>
+                    <th>Enq. Product Status <span class="sort-icons"><i class="fas fa-caret-up"></i><i
+                          class="fas fa-caret-down"></i></span></th>
+                    <th>Quotation Sent Status <span class="sort-icons"><i class="fas fa-caret-up"></i><i
+                          class="fas fa-caret-down"></i></span></th>
+                    <th>Zoho Quotation No. <span class="sort-icons"><i class="fas fa-caret-up"></i><i
+                          class="fas fa-caret-down"></i></span></th>
+                    <th>Multiple Quotation <span class="sort-icons"><i class="fas fa-caret-up"></i><i
+                          class="fas fa-caret-down"></i></span></th>
+                    <th>Quotation Sent Date <span class="sort-icons"><i class="fas fa-caret-up"></i><i
+                          class="fas fa-caret-down"></i></span></th>
+                    <th>SLA Status <span class="sort-icons"><i class="fas fa-caret-up"></i><i
+                          class="fas fa-caret-down"></i></span></th>
+                    <th>CENPRO Remark <span class="sort-icons"><i class="fas fa-caret-up"></i><i
+                          class="fas fa-caret-down"></i></span></th>
+                    <th>Resort Remark <span class="sort-icons"><i class="fas fa-caret-up"></i><i
+                          class="fas fa-caret-down"></i></span></th>
                   </tr>
                   <tr>
                     <th><input type="text" placeholder="Enq. No" class="qt-filter-input"></th>
@@ -1792,22 +2460,38 @@
               <table id="quotationTable3" class="table table-bordered table-striped nowrap qt-table" style="width:100%">
                 <thead>
                   <tr>
-                    <th>Enquiry Number <span class="sort-icons"><i class="fas fa-caret-up"></i><i class="fas fa-caret-down"></i></span></th>
-                    <th>Enq. Received Date <span class="sort-icons"><i class="fas fa-caret-up"></i><i class="fas fa-caret-down"></i></span></th>
-                    <th>Sender’s Email ID <span class="sort-icons"><i class="fas fa-caret-up"></i><i class="fas fa-caret-down"></i></span></th>
-                    <th>Client Name <span class="sort-icons"><i class="fas fa-caret-up"></i><i class="fas fa-caret-down"></i></span></th>
-                    <th>Email Subject Line <span class="sort-icons"><i class="fas fa-caret-up"></i><i class="fas fa-caret-down"></i></span></th>
-                    <th>Product Category <span class="sort-icons"><i class="fas fa-caret-up"></i><i class="fas fa-caret-down"></i></span></th>
-                    <th>Assigned To <span class="sort-icons"><i class="fas fa-caret-up"></i><i class="fas fa-caret-down"></i></span></th>
-                    <th>SLA <span class="sort-icons"><i class="fas fa-caret-up"></i><i class="fas fa-caret-down"></i></span></th>
-                    <th>Enq. Product Status <span class="sort-icons"><i class="fas fa-caret-up"></i><i class="fas fa-caret-down"></i></span></th>
-                    <th>Quotation Sent Status <span class="sort-icons"><i class="fas fa-caret-up"></i><i class="fas fa-caret-down"></i></span></th>
-                    <th>Zoho Quotation No. <span class="sort-icons"><i class="fas fa-caret-up"></i><i class="fas fa-caret-down"></i></span></th>
-                    <th>Multiple Quotation <span class="sort-icons"><i class="fas fa-caret-up"></i><i class="fas fa-caret-down"></i></span></th>
-                    <th>Quotation Sent Date <span class="sort-icons"><i class="fas fa-caret-up"></i><i class="fas fa-caret-down"></i></span></th>
-                    <th>SLA Status <span class="sort-icons"><i class="fas fa-caret-up"></i><i class="fas fa-caret-down"></i></span></th>
-                    <th>CENPRO Remark <span class="sort-icons"><i class="fas fa-caret-up"></i><i class="fas fa-caret-down"></i></span></th>
-                    <th>Resort Remark <span class="sort-icons"><i class="fas fa-caret-up"></i><i class="fas fa-caret-down"></i></span></th>
+                    <th>Enquiry Number <span class="sort-icons"><i class="fas fa-caret-up"></i><i
+                          class="fas fa-caret-down"></i></span></th>
+                    <th>Enq. Received Date <span class="sort-icons"><i class="fas fa-caret-up"></i><i
+                          class="fas fa-caret-down"></i></span></th>
+                    <th>Sender’s Email ID <span class="sort-icons"><i class="fas fa-caret-up"></i><i
+                          class="fas fa-caret-down"></i></span></th>
+                    <th>Client Name <span class="sort-icons"><i class="fas fa-caret-up"></i><i
+                          class="fas fa-caret-down"></i></span></th>
+                    <th>Email Subject Line <span class="sort-icons"><i class="fas fa-caret-up"></i><i
+                          class="fas fa-caret-down"></i></span></th>
+                    <th>Product Category <span class="sort-icons"><i class="fas fa-caret-up"></i><i
+                          class="fas fa-caret-down"></i></span></th>
+                    <th>Assigned To <span class="sort-icons"><i class="fas fa-caret-up"></i><i
+                          class="fas fa-caret-down"></i></span></th>
+                    <th>SLA <span class="sort-icons"><i class="fas fa-caret-up"></i><i
+                          class="fas fa-caret-down"></i></span></th>
+                    <th>Enq. Product Status <span class="sort-icons"><i class="fas fa-caret-up"></i><i
+                          class="fas fa-caret-down"></i></span></th>
+                    <th>Quotation Sent Status <span class="sort-icons"><i class="fas fa-caret-up"></i><i
+                          class="fas fa-caret-down"></i></span></th>
+                    <th>Zoho Quotation No. <span class="sort-icons"><i class="fas fa-caret-up"></i><i
+                          class="fas fa-caret-down"></i></span></th>
+                    <th>Multiple Quotation <span class="sort-icons"><i class="fas fa-caret-up"></i><i
+                          class="fas fa-caret-down"></i></span></th>
+                    <th>Quotation Sent Date <span class="sort-icons"><i class="fas fa-caret-up"></i><i
+                          class="fas fa-caret-down"></i></span></th>
+                    <th>SLA Status <span class="sort-icons"><i class="fas fa-caret-up"></i><i
+                          class="fas fa-caret-down"></i></span></th>
+                    <th>CENPRO Remark <span class="sort-icons"><i class="fas fa-caret-up"></i><i
+                          class="fas fa-caret-down"></i></span></th>
+                    <th>Resort Remark <span class="sort-icons"><i class="fas fa-caret-up"></i><i
+                          class="fas fa-caret-down"></i></span></th>
                   </tr>
                   <tr>
                     <th><input type="text" placeholder="Enq. No" class="qt-filter-input"></th>
@@ -1871,290 +2555,291 @@
           </div>
         </div>
         <!-- Edit Modal -->
-       <div class="modal fade" id="qtEditModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content p-3 position-relative">
-      <button class="qt-close-btn" data-bs-dismiss="modal">&times;</button>
-      <h5 class="mb-2 fw-bold" id="editModalLabel">Edit Cell</h5>
-      <p class="text-muted mb-3" id="cellHeader"></p>
-      <div class="modal-body p-0">
-        <div class="mb-4">
-          <input type="text" class="form-control" id="cellInput" placeholder="Enter value" />
-        </div>
-        <div class="d-flex justify-content-end gap-2">
-          <button class="btn qt-btn-cancel" data-bs-dismiss="modal">Cancel</button>
-          <button class="btn qt-btn-update" id="submitCell">Submit</button>
+        <div class="modal fade" id="qtEditModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content p-3 position-relative">
+              <button class="qt-close-btn" data-bs-dismiss="modal">&times;</button>
+              <h5 class="mb-2 fw-bold" id="editModalLabel">Edit Cell</h5>
+              <p class="text-muted mb-3" id="cellHeader"></p>
+              <div class="modal-body p-0">
+                <div class="mb-4">
+                  <input type="text" class="form-control" id="cellInput" placeholder="Enter value" />
+                </div>
+                <div class="d-flex justify-content-end gap-2">
+                  <button class="btn qt-btn-cancel" data-bs-dismiss="modal">Cancel</button>
+                  <button class="btn qt-btn-update" id="submitCell">Submit</button>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
-</div>
-      </div>
-       <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const tables = [
-        document.getElementById("quotationTable1"),
-        document.getElementById("quotationTable2"),
-        document.getElementById("quotationTable3")
-      ];
-      const { jsPDF } = window.jspdf;
+      <script>
+        document.addEventListener("DOMContentLoaded", () => {
+          const tables = [
+            document.getElementById("quotationTable1"),
+            document.getElementById("quotationTable2"),
+            document.getElementById("quotationTable3")
+          ];
+          const { jsPDF } = window.jspdf;
 
-      // Function to get table data as an array
-      function getTableData(table) {
-        const headers = Array.from(table.querySelectorAll("thead tr:first-child th")).map(th => th.textContent.trim().replace(/[\u2191\u2193]/g, '').trim());
-        const rows = Array.from(table.querySelectorAll("tbody tr")).map(row =>
-          Array.from(row.cells).map(cell => cell.querySelector(".remark-text")?.textContent.trim() || cell.textContent.trim())
-        );
-        return [headers, ...rows];
-      }
+          // Function to get table data as an array
+          function getTableData(table) {
+            const headers = Array.from(table.querySelectorAll("thead tr:first-child th")).map(th => th.textContent.trim().replace(/[\u2191\u2193]/g, '').trim());
+            const rows = Array.from(table.querySelectorAll("tbody tr")).map(row =>
+              Array.from(row.cells).map(cell => cell.querySelector(".remark-text")?.textContent.trim() || cell.textContent.trim())
+            );
+            return [headers, ...rows];
+          }
 
-      // Function to get the active table
-      function getActiveTable() {
-        const activeTab = document.querySelector(".tab-pane.show.active");
-        return activeTab ? activeTab.querySelector("table") : null;
-      }
+          // Function to get the active table in Quotation Tracker tab
+          function getActiveTable() {
+            // Only look for active tab inside Quotation Tracker
+            const activeTab = document.querySelector("#quotation .tab-pane.show.active");
+            return activeTab ? activeTab.querySelector("table") : null;
+          }
 
-      // Search functionality
-      const globalSearch = document.getElementById("globalSearch");
-      const searchButton = document.getElementById("searchButton");
-      function applyGlobalSearch() {
-        const table = getActiveTable();
-        if (!table) return;
-        const searchTerm = globalSearch.value.trim().toLowerCase();
-        const tbody = table.tBodies[0];
-        Array.from(tbody.rows).forEach(row => {
-          const rowText = Array.from(row.cells).map(cell => 
-            cell.querySelector(".remark-text")?.textContent.trim().toLowerCase() || 
-            cell.textContent.trim().toLowerCase()
-          ).join(" ");
-          row.style.display = searchTerm ? rowText.includes(searchTerm) ? "" : "none" : "";
-        });
-      }
-      globalSearch.addEventListener("input", applyGlobalSearch);
-      searchButton.addEventListener("click", applyGlobalSearch);
+          // Search functionality
+          const globalSearch = document.getElementById("globalSearch");
+          const searchButton = document.getElementById("searchButton");
+          function applyGlobalSearch() {
+            const table = getActiveTable();
+            if (!table) return;
+            const searchTerm = globalSearch.value.trim().toLowerCase();
+            const tbody = table.tBodies[0];
+            Array.from(tbody.rows).forEach(row => {
+              const rowText = Array.from(row.cells).map(cell =>
+                cell.querySelector(".remark-text")?.textContent.trim().toLowerCase() ||
+                cell.textContent.trim().toLowerCase()
+              ).join(" ");
+              row.style.display = searchTerm ? rowText.includes(searchTerm) ? "" : "none" : "";
+            });
+          }
+          globalSearch.addEventListener("input", applyGlobalSearch);
+          searchButton.addEventListener("click", applyGlobalSearch);
 
-      // Row selector functionality
-      const rowSelector = document.getElementById("rowSelector");
-      function applyRowLimit() {
-        const table = getActiveTable();
-        if (!table) return;
-        const limit = parseInt(rowSelector.value);
-        const tbody = table.tBodies[0];
-        Array.from(tbody.rows).forEach((row, index) => {
-          row.style.display = index < limit ? "" : "none";
-        });
-      }
-      rowSelector.addEventListener("change", applyRowLimit);
+          // Row selector functionality
+          const rowSelector = document.getElementById("rowSelector");
+          function applyRowLimit() {
+            const table = getActiveTable();
+            if (!table) return;
+            const limit = parseInt(rowSelector.value);
+            const tbody = table.tBodies[0];
+            Array.from(tbody.rows).forEach((row, index) => {
+              row.style.display = index < limit ? "" : "none";
+            });
+          }
+          rowSelector.addEventListener("change", applyRowLimit);
 
-      // Copy button
-      document.getElementById("copyButton").addEventListener("click", () => {
-        const table = getActiveTable();
-        if (!table) return;
-        const data = getTableData(table);
-        const text = data.map(row => row.join("\t")).join("\n");
-        navigator.clipboard.writeText(text).then(() => alert("Table data copied to clipboard!"));
-      });
-
-      // CSV button
-      document.getElementById("csvButton").addEventListener("click", () => {
-        const table = getActiveTable();
-        if (!table) return;
-        const data = getTableData(table);
-        const csv = data.map(row => row.map(cell => `"${cell.replace(/"/g, '""')}"`).join(",")).join("\n");
-        const blob = new Blob([csv], { type: "text/csv" });
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement("a");
-        a.href = url;
-        a.download = "quotation_tracker.csv";
-        a.click();
-        URL.revokeObjectURL(url);
-      });
-
-      // Excel button
-      document.getElementById("excelButton").addEventListener("click", () => {
-        const table = getActiveTable();
-        if (!table) return;
-        const data = getTableData(table);
-        const ws = XLSX.utils.aoa_to_sheet(data);
-        const wb = XLSX.utils.book_new();
-        XLSX.utils.book_append_sheet(wb, ws, "Quotation Tracker");
-        XLSX.writeFile(wb, "quotation_tracker.xlsx");
-      });
-
-      // PDF button
-      document.getElementById("pdfButton").addEventListener("click", () => {
-        const table = getActiveTable();
-        if (!table) return;
-        const tableContainer = table.closest(".table-responsive");
-        html2canvas(tableContainer, { scale: 2 }).then(canvas => {
-          const imgData = canvas.toDataURL("image/png");
-          const pdf = new jsPDF({
-            orientation: "landscape",
-            unit: "px",
-            format: [canvas.width, canvas.height]
+          // Copy button
+          document.getElementById("copyButton").addEventListener("click", () => {
+            const table = getActiveTable();
+            if (!table) return;
+            const data = getTableData(table);
+            const text = data.map(row => row.join("\t")).join("\n");
+            navigator.clipboard.writeText(text).then(() => alert("Table data copied to clipboard!"));
           });
-          pdf.addImage(imgData, "PNG", 0, 0, canvas.width, canvas.height);
-          pdf.save("quotation_tracker.pdf");
-        });
-      });
 
-      // Print button
-      document.getElementById("printButton").addEventListener("click", () => {
-        const table = getActiveTable();
-        if (!table) return;
-        const printWindow = window.open("", "_blank");
-        printWindow.document.write(`
-          <html>
-            <head>
-              <title>Print Quotation Tracker</title>
-              <style>
-                table { border-collapse: collapse; width: 100%; }
-                th, td { border: 1px solid #ddd; padding: 8px; text-align: center; }
-                th { background-color: #f2f2f2; }
-              </style>
-            </head>
-            <body>
-              ${table.outerHTML}
-            </body>
-          </html>
-        `);
-        printWindow.document.close();
-        printWindow.print();
-      });
+          // CSV button
+          document.getElementById("csvButton").addEventListener("click", () => {
+            const table = getActiveTable();
+            if (!table) return;
+            const data = getTableData(table);
+            const csv = data.map(row => row.map(cell => `"${cell.replace(/"/g, '""')}"`).join(",")).join("\n");
+            const blob = new Blob([csv], { type: "text/csv" });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement("a");
+            a.href = url;
+            a.download = "quotation_tracker.csv";
+            a.click();
+            URL.revokeObjectURL(url);
+          });
 
-      tables.forEach(table => {
-        if (!table) return;
+          // Excel button
+          document.getElementById("excelButton").addEventListener("click", () => {
+            const table = getActiveTable();
+            if (!table) return;
+            const data = getTableData(table);
+            const ws = XLSX.utils.aoa_to_sheet(data);
+            const wb = XLSX.utils.book_new();
+            XLSX.utils.book_append_sheet(wb, ws, "Quotation Tracker");
+            XLSX.writeFile(wb, "quotation_tracker.xlsx");
+          });
 
-        const header = table.tHead.rows[0];
-        const filterRowInputs = Array.from(table.querySelectorAll("thead tr:nth-child(2) input"));
-        const tbody = table.tBodies[0];
+          // PDF button
+          document.getElementById("pdfButton").addEventListener("click", () => {
+            const table = getActiveTable();
+            if (!table) return;
+            const tableContainer = table.closest(".table-responsive");
+            html2canvas(tableContainer, { scale: 2 }).then(canvas => {
+              const imgData = canvas.toDataURL("image/png");
+              const pdf = new jsPDF({
+                orientation: "landscape",
+                unit: "px",
+                format: [canvas.width, canvas.height]
+              });
+              pdf.addImage(imgData, "PNG", 0, 0, canvas.width, canvas.height);
+              pdf.save("quotation_tracker.pdf");
+            });
+          });
 
-        function refreshBlankCells() {
-          Array.from(tbody.rows).forEach(row => {
-            Array.from(row.cells).forEach((td, idx) => {
-              const text = td.textContent.trim();
-              const headerText = header.cells[idx].textContent.trim().replace(/[\u2191\u2193]/g, '').trim();
-              td.innerHTML = "";
+          // Print button
+          document.getElementById("printButton").addEventListener("click", () => {
+            const table = getActiveTable();
+            if (!table) return;
+            const printWindow = window.open("", "_blank");
+            printWindow.document.write(`
+      <html>
+        <head>
+          <title>Print Quotation Tracker</title>
+          <style>
+            table { border-collapse: collapse; width: 100%; }
+            th, td { border: 1px solid #ddd; padding: 8px; text-align: center; }
+            th { background-color: #f2f2f2; }
+          </style>
+        </head>
+        <body>
+          ${table.outerHTML}
+        </body>
+      </html>
+    `);
+            printWindow.document.close();
+            printWindow.print();
+          });
 
-              const span = document.createElement("span");
-              span.className = "remark-text";
+          tables.forEach(table => {
+            if (!table) return;
 
-              if (!text) {
-                span.textContent = headerText;
-                span.classList.add("text-missing");
-                td.appendChild(span);
+            const header = table.tHead.rows[0];
+            const filterRowInputs = Array.from(table.querySelectorAll("thead tr:nth-child(2) input"));
+            const tbody = table.tBodies[0];
 
+            function refreshBlankCells() {
+              Array.from(tbody.rows).forEach(row => {
+                Array.from(row.cells).forEach((td, idx) => {
+                  const text = td.textContent.trim();
+                  const headerText = header.cells[idx].textContent.trim().replace(/[\u2191\u2193]/g, '').trim();
+                  td.innerHTML = "";
+
+                  const span = document.createElement("span");
+                  span.className = "remark-text";
+
+                  if (!text) {
+                    span.textContent = headerText;
+                    span.classList.add("text-missing");
+                    td.appendChild(span);
+
+                    const icon = document.createElement("i");
+                    icon.className = "fas fa-edit edit-icon";
+                    icon.title = "Edit";
+                    icon.setAttribute("data-col-index", idx);
+                    td.appendChild(icon);
+                  } else {
+                    span.textContent = text;
+                    td.appendChild(span);
+                  }
+                });
+              });
+            }
+
+            refreshBlankCells();
+
+            function applyFilters() {
+              Array.from(tbody.rows).forEach(row => {
+                let show = true;
+                filterRowInputs.forEach((input, i) => {
+                  const val = input.value.trim().toLowerCase();
+                  if (!val) return;
+                  const cell = row.cells[i];
+                  const txt = (cell.querySelector(".remark-text")?.textContent || cell.textContent).trim().toLowerCase();
+                  if (!txt.includes(val)) show = false;
+                });
+                row.style.display = show ? "" : "none";
+              });
+              applyRowLimit();
+            }
+            filterRowInputs.forEach(inp => inp.addEventListener("input", applyFilters));
+
+            let sortDirection = {};
+            header.querySelectorAll("th").forEach((th, index) => {
+              const icons = th.querySelector(".sort-icons");
+              if (!icons) return;
+              const [up, down] = icons.querySelectorAll("i");
+
+              up.addEventListener("click", () => sortTable(index, "asc", up, down));
+              down.addEventListener("click", () => sortTable(index, "desc", up, down));
+            });
+
+            function sortTable(colIndex, direction, up, down) {
+              const rows = Array.from(tbody.rows);
+              rows.sort((a, b) => {
+                const aText = (a.cells[colIndex].querySelector(".remark-text")?.textContent || a.cells[colIndex].textContent).trim().toLowerCase();
+                const bText = (b.cells[colIndex].querySelector(".remark-text")?.textContent || b.cells[colIndex].textContent).trim().toLowerCase();
+                if (aText < bText) return direction === "asc" ? -1 : 1;
+                if (aText > bText) return direction === "asc" ? 1 : -1;
+                return 0;
+              });
+              tbody.append(...rows);
+
+              header.querySelectorAll(".sort-icons i").forEach(i => i.classList.remove("sort-active"));
+              if (direction === "asc") up.classList.add("sort-active");
+              else down.classList.add("sort-active");
+              applyRowLimit();
+            }
+
+            tbody.addEventListener("click", (e) => {
+              const icon = e.target.closest(".edit-icon");
+              if (!icon) return;
+              const td = icon.closest("td");
+              currentCell = td;
+              const colHeader = header.cells[icon.getAttribute("data-col-index")].textContent.trim().replace(/[\u2191\u2193]/g, '').trim();
+              cellHeader.textContent = colHeader;
+              cellInput.value = td.querySelector(".remark-text")?.textContent.replace(colHeader, "").trim() || "";
+              editModal.show();
+            });
+          });
+
+          const modalEl = document.getElementById("qtEditModal");
+          const editModal = new bootstrap.Modal(modalEl);
+          const cellInput = document.getElementById("cellInput");
+          const cellHeader = document.getElementById("cellHeader");
+          const submitBtn = document.getElementById("submitCell");
+          let currentCell = null;
+
+          submitBtn.addEventListener("click", () => {
+            if (!currentCell) return;
+            const val = cellInput.value.trim();
+            const span = currentCell.querySelector(".remark-text");
+            const header = currentCell.closest("table").tHead.rows[0];
+            if (val) {
+              span.textContent = val;
+              span.classList.remove("text-missing");
+              const icon = currentCell.querySelector(".edit-icon");
+              if (icon) icon.remove();
+            } else {
+              span.textContent = header.cells[currentCell.cellIndex].textContent.trim().replace(/[\u2191\u2193]/g, '').trim();
+              span.classList.add("text-missing");
+              if (!currentCell.querySelector(".edit-icon")) {
                 const icon = document.createElement("i");
                 icon.className = "fas fa-edit edit-icon";
                 icon.title = "Edit";
-                icon.setAttribute("data-col-index", idx);
-                td.appendChild(icon);
-              } else {
-                span.textContent = text;
-                td.appendChild(span);
+                icon.setAttribute("data-col-index", currentCell.cellIndex);
+                currentCell.appendChild(icon);
               }
-            });
+            }
+            editModal.hide();
+            currentCell = null;
           });
-        }
 
-        refreshBlankCells();
-
-        function applyFilters() {
-          Array.from(tbody.rows).forEach(row => {
-            let show = true;
-            filterRowInputs.forEach((input, i) => {
-              const val = input.value.trim().toLowerCase();
-              if (!val) return;
-              const cell = row.cells[i];
-              const txt = (cell.querySelector(".remark-text")?.textContent || cell.textContent).trim().toLowerCase();
-              if (!txt.includes(val)) show = false;
-            });
-            row.style.display = show ? "" : "none";
-          });
+          // Initialize row limit on page load
           applyRowLimit();
-        }
-        filterRowInputs.forEach(inp => inp.addEventListener("input", applyFilters));
-
-        let sortDirection = {};
-        header.querySelectorAll("th").forEach((th, index) => {
-          const icons = th.querySelector(".sort-icons");
-          if (!icons) return;
-          const [up, down] = icons.querySelectorAll("i");
-
-          up.addEventListener("click", () => sortTable(index, "asc", up, down));
-          down.addEventListener("click", () => sortTable(index, "desc", up, down));
         });
-
-        function sortTable(colIndex, direction, up, down) {
-          const rows = Array.from(tbody.rows);
-          rows.sort((a, b) => {
-            const aText = (a.cells[colIndex].querySelector(".remark-text")?.textContent || a.cells[colIndex].textContent).trim().toLowerCase();
-            const bText = (b.cells[colIndex].querySelector(".remark-text")?.textContent || b.cells[colIndex].textContent).trim().toLowerCase();
-            if (aText < bText) return direction === "asc" ? -1 : 1;
-            if (aText > bText) return direction === "asc" ? 1 : -1;
-            return 0;
-          });
-          tbody.append(...rows);
-
-          header.querySelectorAll(".sort-icons i").forEach(i => i.classList.remove("sort-active"));
-          if (direction === "asc") up.classList.add("sort-active");
-          else down.classList.add("sort-active");
-          applyRowLimit();
-        }
-
-        tbody.addEventListener("click", (e) => {
-          const icon = e.target.closest(".edit-icon");
-          if (!icon) return;
-          const td = icon.closest("td");
-          currentCell = td;
-          const colHeader = header.cells[icon.getAttribute("data-col-index")].textContent.trim().replace(/[\u2191\u2193]/g, '').trim();
-          cellHeader.textContent = colHeader;
-          cellInput.value = td.querySelector(".remark-text")?.textContent.replace(colHeader, "").trim() || "";
-          editModal.show();
-        });
-      });
-
-      const modalEl = document.getElementById("qtEditModal");
-const editModal = new bootstrap.Modal(modalEl);
-      const cellInput = document.getElementById("cellInput");
-      const cellHeader = document.getElementById("cellHeader");
-      const submitBtn = document.getElementById("submitCell");
-      let currentCell = null;
-
-      submitBtn.addEventListener("click", () => {
-        if (!currentCell) return;
-        const val = cellInput.value.trim();
-        const span = currentCell.querySelector(".remark-text");
-        const header = currentCell.closest("table").tHead.rows[0];
-        if (val) {
-          span.textContent = val;
-          span.classList.remove("text-missing");
-          const icon = currentCell.querySelector(".edit-icon");
-          if (icon) icon.remove();
-        } else {
-          span.textContent = header.cells[currentCell.cellIndex].textContent.trim().replace(/[\u2191\u2193]/g, '').trim();
-          span.classList.add("text-missing");
-          if (!currentCell.querySelector(".edit-icon")) {
-            const icon = document.createElement("i");
-            icon.className = "fas fa-edit edit-icon";
-            icon.title = "Edit";
-            icon.setAttribute("data-col-index", currentCell.cellIndex);
-            currentCell.appendChild(icon);
-          }
-        }
-        editModal.hide();
-        currentCell = null;
-      });
-
-      // Initialize row limit on page load
-      applyRowLimit();
-    });
-  </script>
+      </script>
     </div>
   </div>
   <!-- Bootstrap JS and Popper.js -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  
+
 </body>
 
 </html>
